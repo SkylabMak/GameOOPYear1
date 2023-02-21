@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
+
 public class App {
     private JFrame f;
     private JLabel lbLogo;
@@ -27,25 +28,32 @@ public class App {
     private boolean isClicked;
     private int ans;
     private int score;
+    
 
-    public App() {
+
+
+    public App(){
         f = new JFrame("Fifty-Fifty");
-        f.setSize(500, 480);
+        f.setSize(500,480);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         detailComponents();
         f.setVisible(true);
     }
 
-    private void detailComponents() {
-        try {
+
+
+    private  void detailComponents(){
+        try{
             img1 = new ImageIcon("imagefiftyfifty/puppy.png");
             img2 = new ImageIcon("imagefiftyfifty/CS.png");
             img3 = new ImageIcon("imagefiftyfifty/blue600x600.png");
             img4 = new ImageIcon("imagefiftyfifty/orange600x600.jpg");
 
-        } catch (Exception e) {
+
+        }catch(Exception e){
             System.out.println(e);
         }
+
 
         lbLogo = new JLabel("logo");
         btnNew = new JButton("new");
@@ -55,13 +63,14 @@ public class App {
         lbScore = new JLabel("0");
         btnNext = new JButton("next");
 
-        lbLogo.setPreferredSize(new Dimension(200, 100));
-        btnNew.setPreferredSize(new Dimension(200, 100));
-        tileLeft.setPreferredSize(new Dimension(200, 200));
-        tileRight.setPreferredSize(new Dimension(200, 200));
-        lbYourScore.setPreferredSize(new Dimension(100, 100));
-        lbScore.setPreferredSize(new Dimension(100, 100));
-        btnNext.setPreferredSize(new Dimension(200, 100));
+        lbLogo.setPreferredSize(new Dimension(200,100));
+        btnNew.setPreferredSize(new Dimension(200,100));
+        tileLeft.setPreferredSize(new Dimension(200,200));
+        tileRight.setPreferredSize(new Dimension(200,200));
+        lbYourScore.setPreferredSize(new Dimension(100,100));
+        lbScore.setPreferredSize(new Dimension(100,100));
+        btnNext.setPreferredSize(new Dimension(200,100));
+
 
         f.setLayout(new FlowLayout());
         f.add(lbLogo);
@@ -77,54 +86,53 @@ public class App {
         btnNew.addActionListener(bl);
         btnNext.addActionListener(bl);
         newGame();
-
+        
+      
     }
-
-    private void newGame() {
+    private void newGame(){
         score = 0;
         lbScore.setText("" + score);
         play();
     }
-
-    private void play() {
+    private void play(){
         isClicked = false;
         ans = Math.random() > 0.5 ? 0 : 1;
     }
-
-    private class AllButtonListener implements ActionListener {
+    private class AllButtonListener implements ActionListener{
         @Override
-        public void actionPerformed(ActionEvent ev) {
-            JButton source = (JButton) ev.getSource();
-            if ((source == tileLeft) && (!isClicked)) {
-                if (ans == 0) {
+        public void actionPerformed(ActionEvent ev){
+            JButton source = (JButton)ev.getSource();
+            if ((source == tileLeft) && (!isClicked)){
+                if (ans == 0){
                     tileLeft.setIcon(img2);
                     score++;
                     lbScore.setText("" + score);
 
-                } else
-                    tileLeft.setIcon(img1);
-                isClicked = true;
-
-            } else if ((source == tileRight) && (!isClicked)) {
-                if (ans == 1) {
+                }else
+                tileLeft.setIcon(img1);
+            isClicked = true;
+                
+            }else if ((source == tileRight) && (!isClicked)){
+                if (ans == 1){
                     tileRight.setIcon(img2);
                     score++;
                     lbScore.setText("" + score);
-                } else
-                    tileRight.setIcon(img1);
+                }else
+                tileRight.setIcon(img1);
                 isClicked = true;
 
-            } else if (source == btnNext) {
+            }else if ( source == btnNext){
                 tileLeft.setIcon(img3);
                 tileRight.setIcon(img4);
                 play();
 
-            } else if (source == btnNew) {
+            }else if (source == btnNew){
                 tileLeft.setIcon(img3);
                 tileRight.setIcon(img4);
                 newGame();
             }
         }
     }
+    
 
 }

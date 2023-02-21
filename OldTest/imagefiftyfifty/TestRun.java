@@ -1,4 +1,4 @@
-
+package imagefiftyfifty;
 
 import imagefiftyfifty.App;
 

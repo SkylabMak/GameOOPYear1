@@ -1,11 +1,12 @@
 package App.object;
 
-public class tile {
+import javax.swing.JPanel;
+
+public class Tile {
     private String blackcolor;
     private String whitecolor;
 
-    tile(String b) {
-        b = blackcolor;
+    public Tile(JPanel a) {
 
     }
 
@@ -39,6 +40,10 @@ public class tile {
 
     public void touchButtom() {
 
+    }
+
+    public String toString() {
+        return String.format("this is Tile class");
     }
 
 }

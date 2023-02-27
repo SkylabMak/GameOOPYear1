@@ -7,8 +7,13 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class App extends JPanel {
+//object-----------
+import App.object.*;
+import App.object.Ffolder.Table2_2;
+
+public class App {
     JFrame frame = new JFrame("My First GUI");
+    Stat stat = new Stat();
 
     public static void main(String args[]) {
 
@@ -34,7 +39,10 @@ public class App extends JPanel {
     }
 
     public void start() {// satrt
-
+        stat.reset();
+        stat.setMapSize(frame);
+        Table2_2 table2_2 = new Table2_2(frame);
+        play(2);
     }
 
     // public void broad() {// create borad
@@ -42,7 +50,16 @@ public class App extends JPanel {
     // }
 
     public void play(int size) {// play
-
+        while (stat.status) {
+            int quantity = stat.getQuantity();
+            for (int iRandom = 0; iRandom < quantity; iRandom++) {
+                stat.queue.add(randomZY(size));
+            }
+            for (int iPreview = 0; iPreview < quantity; iPreview++) {
+                int[] xYPreview = stat.queue.get(iPreview);
+                Tile tile = (stat.mapSize.get(size)).tile[xYPreview[0]][xYPreview[1]];// .tile[xYPreview[0]][xYPreview[1]]
+            }
+        }
     }
 
     public int[] randomZY(int size) {// random

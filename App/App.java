@@ -5,15 +5,18 @@ import javax.swing.*;
 import java.awt.FlowLayout;
 
 import java.awt.event.ActionListener;
+import java.util.HashMap;
 import java.awt.event.ActionEvent;
+import javax.swing.Timer;
 
 //object-----------
 import App.object.*;
-import App.object.Ffolder.Table2_2;
+import App.object.Ffolder.*;
 
 public class App {
     JFrame frame = new JFrame("My First GUI");
     Stat stat = new Stat();
+    HashMap<Integer, TableMain> mapSize;
 
     public static void main(String args[]) {
 
@@ -21,27 +24,52 @@ public class App {
 
     public App() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500, 500);
+        frame.setSize(700, 700);
+        JPanel mainPanel = new JPanel();
         JButton btnStart = new JButton("Start");// button start
+        JButton test = new JButton("Test");// button start
         frame.setLayout(new FlowLayout());
         btnStart.setPreferredSize(new Dimension(200, 100));
         btnStart.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                btnStart.setVisible(false);
+                mainPanel.setVisible(false);
                 start();
 
             }
 
         });
-        frame.getContentPane().add(btnStart);
+        test.setPreferredSize(new Dimension(200, 100));
+        test.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int delay = 3000; // milliseconds
+                Timer time;
+                // new Table2_2(frame);
+                ActionListener taskPerformer = new ActionListener() {
+                    public void actionPerformed(ActionEvent evt) {
+                        System.out.println("test");
+                    }
+                };
+                time = new Timer(delay, taskPerformer);
+                time.start();
+                time.stop();
+                System.out.println("test out method");
+                mainPanel.setVisible(false);
+            }
+
+        });
+        mainPanel.add(btnStart);
+        mainPanel.add(test);
+        frame.add(mainPanel);
+        // frame.getContentPane().add(test);
         frame.setVisible(true);
     }
 
     public void start() {// satrt
         stat.reset();
         stat.setMapSize(frame);
-        Table2_2 table2_2 = new Table2_2(frame);
+        mapSize = stat.getMapSize(frame);
         play(2);
     }
 
@@ -49,16 +77,31 @@ public class App {
 
     // }
 
+    public void previewAndSetOrder(int size) {
+        int quantity = stat.getQuantity();
+        for (int iPreview = 0; iPreview < quantity; iPreview++) {
+            int[] xYPreview = stat.getQueues(iPreview);
+            Tile[][] map = mapSize.get(2).getTile();
+            map[xYPreview[0]][xYPreview[1]].ChangeColor();
+            map[xYPreview[0]][xYPreview[1]].setOrder(iPreview + 1);
+            System.out.println(xYPreview);
+
+        }
+    }
+
+    public void listenerPress(int size) {
+
+    }
+
     public void play(int size) {// play
-        while (stat.status) {
+        while (stat.getStatus()) {
             int quantity = stat.getQuantity();
             for (int iRandom = 0; iRandom < quantity; iRandom++) {
-                stat.queue.add(randomZY(size));
+                stat.addQueue(randomZY(size));
             }
-            for (int iPreview = 0; iPreview < quantity; iPreview++) {
-                int[] xYPreview = stat.queue.get(iPreview);
-                Tile tile = (stat.mapSize.get(size)).tile[xYPreview[0]][xYPreview[1]];// .tile[xYPreview[0]][xYPreview[1]]
-            }
+            previewAndSetOrder(size);
+            listenerPress(size);
+
         }
     }
 

@@ -1,19 +1,29 @@
-import java.util.HashMap;
-
-import javax.swing.JFrame;
-
-import App.object.Stat;
-import App.object.Tile;
-import App.object.Ffolder.TableMain;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.Timer;
 
 public class TestMethod {
-    static Stat stat = new Stat();
+    int delay = 1000; // milliseconds
+    Timer time;
+
+    public TestMethod() {
+        ActionListener taskPerformer = new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                System.out.println("test");
+            }
+        };
+        time = new Timer(delay, taskPerformer);
+        time.start();
+
+        try {
+            wait(1000);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        System.out.println("test out method");
+    }
 
     public static void main(String[] args) {
-        // Tile tile = (stat.mapSize.get(2)).tile[1][0];
-        HashMap<Integer, TableMain> mapSize = stat.getMapSize(new JFrame("My First GUI"));
-        Tile[][] weGet = mapSize.get(3).getTile();
-        System.out.println(weGet[0][0]);
-        // System.out.println(tile);
+        new TestMethod();
     }
 }

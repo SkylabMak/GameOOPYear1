@@ -1,49 +1,66 @@
 package App.object;
 
 import javax.swing.JPanel;
+import javax.swing.JButton;
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.Timer;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Tile {
-    private String blackcolor;
-    private String whitecolor;
+    private JButton blackcolor = new JButton();
+    private int OwnOrder = -1;
+    Timer timer;
+
+    public void setOrder(int newOrder) {
+        this.OwnOrder = newOrder;
+    }
 
     public Tile(JPanel a) {
-
+        blackcolor.setPreferredSize(new Dimension(100, 100));
+        blackcolor.setBackground(Color.CYAN);
     }
 
-    public String getWhitecolor() {
-        return whitecolor;
-    }
-
-    public String getBlackcolor() {
+    public JButton returnBTn() {
         return blackcolor;
     }
 
-    public void changeColorWhite() {
-        blackcolor = whitecolor;
+    public void ChangeColor() {// wait Local variables
+        blackcolor.setBackground(Color.white);
     }
 
-    public void setBlackcolor(String blackcolor) {
-        this.blackcolor = blackcolor;
-    }
+    public void settimeout() {
+        int secord = 1;
+        ActionListener taskperformer = new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
 
-    public void setWhitecolor(String whitecolor) {
-        this.whitecolor = whitecolor;
-    }
-
-    public void changeColorWhite(String blackColor) {
-        blackcolor = whitecolor;
-    }
-
-    public void changeColorToBlue(String blackColor) {
-        // nothing;
-    }
-
-    public void touchButtom() {
+            }
+        };
+        timer = new Timer(0, taskperformer);
+        timer.setInitialDelay(secord);
+        timer.start();
 
     }
 
-    public String toString() {
-        return String.format("this is Tile class");
+    private class AllButtonListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            // TODO Auto-generated method stub
+            Stat stat = new Stat();
+            if (OwnOrder == stat.getQuantity()) {
+                stat.upLevel();
+            } else if (OwnOrder != stat.getCurrentOrder()) {
+                stat.decreaseHeart();
+            } else {
+                stat.UpOrder();
+            }
+            throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+        }
+
     }
 
 }

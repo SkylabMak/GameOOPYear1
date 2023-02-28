@@ -11,24 +11,29 @@ import App.object.Ffolder.Table3_3;
 import App.object.Ffolder.TableMain;
 
 public class Stat {
-    private int level = 0;
-    private int heart = 3;
-    private int size = 2;
-    private int quantity = 1;
-    public boolean status = true;
-    public ArrayList<int[]> queue = new ArrayList<>();
-    public HashMap<Integer, TableMain> mapSize = new HashMap<>();
+    private static int level = 0;
+    private static int heart = 3;
+    private static int size = 2;
+    private static int quantity = 1;
+    public static boolean status = true;
+    private static int currentOrder = 1;
+    public static ArrayList<int[]> queue = new ArrayList<>();
+    public static HashMap<Integer, TableMain> mapSize = new HashMap<>();
 
     public void setMapSize(JFrame frame) {
         mapSize.put(Integer.valueOf(2), new Table2_2(frame));
         mapSize.put(Integer.valueOf(3), new Table3_3(frame));
-        mapSize.put(Integer.valueOf(4), new Table2_2(frame));
+        // mapSize.put(Integer.valueOf(4), new Table2_2(frame));
     }
 
     public HashMap<Integer, TableMain> getMapSize(JFrame frame) {
         setMapSize(frame);
-        new Table3_3(frame).tile[0][0] = new Tile(new JPanel());
+        // new Table3_3(frame).tile[0][0] = new Tile(new JPanel());
         return mapSize;
+    }
+
+    public void UpOrder() {
+        currentOrder++;
     }
 
     public void reset() {
@@ -36,30 +41,39 @@ public class Stat {
         heart = 3;
         size = 2;
         quantity = 1;
+        currentOrder = 1;
     }
 
-    public void setHeart(int heart) {
-        this.heart += heart;
+    public void decreaseHeart() {
+        heart--;
     }
 
-    public void setSize(int size) {
-        this.size = size;
+    public void addQueue(int[] pointQueue) {
+        queue.add(pointQueue);
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setSize(int newSize) {
+        size = newSize;
+    }
+
+    public void setQuantity(int newQuantity) {
+        quantity = newQuantity;
     }
 
     public void upLevel() {
-        this.quantity++;
-        this.level++;
-        if (this.level == 6) {
-            this.size++;// 3
-            this.quantity = 1;// reset
-        } else if (this.level == 11) {
-            this.size++;// 4
-            this.quantity = 1;// reset
+        quantity++;
+        level++;
+        if (level == 6) {
+            size++;// 3
+            quantity = 1;// reset
+        } else if (level == 11) {
+            size++;// 4
+            quantity = 1;// reset
         }
+    }
+
+    public int getCurrentOrder() {
+        return currentOrder;
     }
 
     public int getHeart() {
@@ -76,5 +90,13 @@ public class Stat {
 
     public int getQuantity() {
         return quantity;
+    }
+
+    public boolean getStatus() {
+        return status;
+    }
+
+    public int[] getQueues(int i) {
+        return queue.get(i);
     }
 }

@@ -1,7 +1,12 @@
 package App.object;
 
 import javax.swing.JPanel;
+import javax.swing.DefaultButtonModel;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 import java.awt.Color;
 import java.awt.Dimension;
 
@@ -11,25 +16,32 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Tile {
-    private JButton blackcolor = new JButton();
+    private JButton btnTile = new JButton();
     private int OwnOrder = -1;
     Timer timer;
+    Color baseColor = Color.white;
 
     public void setOrder(int newOrder) {
         this.OwnOrder = newOrder;
     }
 
-    public Tile(JPanel a) {
-        blackcolor.setPreferredSize(new Dimension(100, 100));
-        blackcolor.setBackground(Color.CYAN);
+    public Tile() {
+    }
+
+    public Tile(JPanel jPanel) {
+        btnTile.addMouseListener(new mouseEvent());
+        // btnTile.addActionListener(new AllButtonListener());
+        btnTile.setPreferredSize(new Dimension(200, 200));
+        btnTile.setBackground(baseColor);
+        btnTile.setModel(new FixedStateButtonModel());
     }
 
     public JButton returnBTn() {
-        return blackcolor;
+        return btnTile;
     }
 
     public void ChangeColor() {// wait Local variables
-        blackcolor.setBackground(Color.white);
+        btnTile.setBackground(Color.white);
     }
 
     public void settimeout() {
@@ -49,7 +61,22 @@ public class Tile {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            // TODO Auto-generated method stub
+            // ChangecolorAfterClick(btnTile);
+        }
+
+        public void ChangecolorAfterClick(JButton btn) {
+            // Tile a = new Tile(btn_tileWhite, btn_tileBlack);
+            btn.setBackground(Color.CYAN);
+            int delay = 100;
+            Timer timer = new Timer(delay, e -> {
+                btn.setBackground(Color.WHITE);
+                btn.setEnabled(true);
+            });
+            timer.setRepeats(false);// make sure the timer only runs onc
+            timer.start();
+        }
+
+        public void check() {
             Stat stat = new Stat();
             if (OwnOrder == stat.getQuantity()) {
                 stat.upLevel();
@@ -61,6 +88,53 @@ public class Tile {
             throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
         }
 
+    }
+
+    public class mouseEvent extends MouseAdapter {
+
+        public void mouseEntered(MouseEvent me) {
+            btnTile.setBackground(Color.ORANGE);
+        }
+
+        public void mouseExited(MouseEvent me) {
+            btnTile.setBackground(baseColor);
+        }
+
+        public void mousePressed(MouseEvent me) {
+            presesdAndHold();
+        }
+
+        public void presesdAndHold() {
+            btnTile.setBackground(Color.MAGENTA);
+            System.out.println("this is Tile mouse Pressed");
+        }
+
+        public void mouseReleased(MouseEvent me) {
+            btnTile.setBackground(baseColor);
+        }
+    }
+
+    public class FixedStateButtonModel extends DefaultButtonModel {
+
+        @Override
+        public boolean isPressed() {
+            return false;
+        }
+
+        @Override
+        public boolean isRollover() {
+            return false;
+        }
+
+        @Override
+        public void setRollover(boolean b) {
+            // NOOP
+        }
+
+    }
+
+    public String toString() {
+        return String.format("this is Tile");
     }
 
 }

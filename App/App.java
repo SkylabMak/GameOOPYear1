@@ -1,5 +1,6 @@
 package App;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.*;
 import java.awt.FlowLayout;
@@ -24,12 +25,16 @@ public class App {
 
     public App() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(700, 700);
+        // frame.setLocationRelativeTo(null);
+        // frame.setBounds(0, 0, 1000, 1000);
+        // frame.setLayout(null);
+        frame.setSize(800, 800);
         JPanel mainPanel = new JPanel();
         JButton btnStart = new JButton("Start");// button start
         JButton test = new JButton("Test");// button start
-        frame.setLayout(new FlowLayout());
+        // frame.setLayout(new FlowLayout());
         btnStart.setPreferredSize(new Dimension(200, 100));
+        mainPanel.setBackground(Color.ORANGE);
         btnStart.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -43,18 +48,8 @@ public class App {
         test.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int delay = 3000; // milliseconds
-                Timer time;
-                // new Table2_2(frame);
-                ActionListener taskPerformer = new ActionListener() {
-                    public void actionPerformed(ActionEvent evt) {
-                        System.out.println("test");
-                    }
-                };
-                time = new Timer(delay, taskPerformer);
-                time.start();
-                time.stop();
-                System.out.println("test out method");
+                // Table3_3 table3 = new Table3_3(frame);
+                Table2_2 table2 = new Table2_2(frame);
                 mainPanel.setVisible(false);
             }
 

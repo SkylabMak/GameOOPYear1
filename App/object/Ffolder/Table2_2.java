@@ -71,4 +71,39 @@ public class Table2_2 extends TableMain {// extends JFrame
     public void setVisbleTure() {
         panel1.setVisible(false);
     }
+
+    public void Changecolor2525(){ 
+        int delay = 1000;
+        Timer timer = new Timer( delay, e -> {
+            for (int i = 0; i < tile2_2.length; i++) {
+                for (int j = 0; j < tile2_2[i].length; j++) {
+                    tile1.ChangeColor();
+                    tile2.ChangeColor();
+                    tile3.ChangeColor();
+                    tile4.ChangeColor();
+                }
+            }
+              /* tile2_2.setBackground(c);  */
+              /* tile2_2.setEnabled( true ); */
+            Changecolorflip();
+        } );
+        timer.setRepeats( false );
+        timer.start();
+        }
+        public void Changecolorflip(){
+        int delay = 1000;
+        Timer timer = new Timer( delay, e -> {
+            for (int i = 0; i < tile2_2.length; i++) {
+                for (int j = 0; j < tile2_2[i].length; j++) {
+                    tile1.ChangeColor2();
+                    tile2.ChangeColor2();
+                    tile3.ChangeColor2();
+                    tile4.ChangeColor2();
+                }
+            }
+        } );
+        timer.setRepeats( false );
+        timer.start();
+        }
+
 }

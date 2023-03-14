@@ -20,7 +20,6 @@ public class App {
     HashMap<Integer, TableMain> mapSize = new HashMap<>();
 
     public static void main(String args[]) {
-
     }
 
     public App() {
@@ -29,7 +28,6 @@ public class App {
         stat.addQueue(new int[] { 0, 0 });
         stat.addQueue(new int[] { 0, 1 });
         stat.addQueue(new int[] { 1, 1 });
-        
         // ------------------------------------------------------------
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // frame.setLocationRelativeTo(null);
@@ -55,12 +53,12 @@ public class App {
         test.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mapSize.put(2, new Table2_2(frame));
-                mapSize.get(2).setVisbleTure();
+                preview(2);
                 // mapSize.put(3, new Table3_3(frame));
                 // Table3_3 table3 = new Table3_3(frame);
                 // Table2_2 table2 = new Table2_2(frame);
                 mainPanel.setVisible(false);
+
             }
 
         });
@@ -82,17 +80,21 @@ public class App {
 
     // }
 
-    public void previewAndSetOrder(int size) {
-        // int quantity = stat.getQuantity();
-        // for (int iPreview = 0; iPreview < quantity; iPreview++) {
-        // int[] xYPreview = stat.getQueues(iPreview);
-        // Tile[][] map = mapSize.get(2).getTile();
-        // map[xYPreview[0]][xYPreview[1]].ChangeColor();
-        // map[xYPreview[0]][xYPreview[1]].setOrder(iPreview + 1);
-        // System.out.println(xYPreview);
+    public void preview(int size) {
+        mapSize.put(size, new Table2_2(frame));
+        Table2_2 preview = (Table2_2) mapSize.get(size);
+        preview.setVisbleTure();
+        preview.Changecolor2525();
 
-        // }
     }
+    // int quantity = stat.getQuantity();
+    // for (int iPreview = 0; iPreview < quantity; iPreview++) {
+    // int[] xYPreview = stat.getQueues(iPreview);
+    // Tile[][] map = mapSize.get(2).getTile();
+    // map[xYPreview[0]][xYPreview[1]].ChangeColor();
+    // map[xYPreview[0]][xYPreview[1]].setOrder(iPreview + 1);
+    // System.out.println(xYPreview);
+    // }
 
     public void listenerPress(int size) {
 
@@ -104,7 +106,7 @@ public class App {
             for (int iRandom = 0; iRandom < quantity; iRandom++) {
                 stat.addQueue(randomZY(size));
             }
-            previewAndSetOrder(size);
+            preview(size);
             listenerPress(size);
 
         }
@@ -116,6 +118,9 @@ public class App {
             xY[i] = (int) (Math.random() * (size));
         }
         return xY;
+    }
+    public void Showpreview(){
+
     }
 
 }

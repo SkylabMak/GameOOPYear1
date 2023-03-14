@@ -17,13 +17,19 @@ import App.object.Ffolder.*;
 public class App {
     JFrame frame = new JFrame("My First GUI");
     Stat stat = new Stat();
-    HashMap<Integer, TableMain> mapSize;
+    HashMap<Integer, TableMain> mapSize = new HashMap<>();
 
     public static void main(String args[]) {
 
     }
 
     public App() {
+        // ----------------------------------------------------------------
+        stat.addQueue(new int[] { 0, 1 });
+        stat.addQueue(new int[] { 0, 0 });
+        stat.addQueue(new int[] { 0, 1 });
+        stat.addQueue(new int[] { 1, 1 });
+        // ------------------------------------------------------------
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // frame.setLocationRelativeTo(null);
         // frame.setBounds(0, 0, 1000, 1000);
@@ -64,7 +70,7 @@ public class App {
     public void start() {// satrt
         stat.reset();
         stat.setMapSize(frame);
-        mapSize = stat.getMapSize(frame);
+        // mapSize = stat.getMapSize(frame);
         play(2);
     }
 
@@ -73,15 +79,15 @@ public class App {
     // }
 
     public void previewAndSetOrder(int size) {
-        int quantity = stat.getQuantity();
-        for (int iPreview = 0; iPreview < quantity; iPreview++) {
-            int[] xYPreview = stat.getQueues(iPreview);
-            Tile[][] map = mapSize.get(2).getTile();
-            map[xYPreview[0]][xYPreview[1]].ChangeColor();
-            map[xYPreview[0]][xYPreview[1]].setOrder(iPreview + 1);
-            System.out.println(xYPreview);
+        // int quantity = stat.getQuantity();
+        // for (int iPreview = 0; iPreview < quantity; iPreview++) {
+        // int[] xYPreview = stat.getQueues(iPreview);
+        // Tile[][] map = mapSize.get(2).getTile();
+        // map[xYPreview[0]][xYPreview[1]].ChangeColor();
+        // map[xYPreview[0]][xYPreview[1]].setOrder(iPreview + 1);
+        // System.out.println(xYPreview);
 
-        }
+        // }
     }
 
     public void listenerPress(int size) {

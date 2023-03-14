@@ -28,14 +28,11 @@ public class App {
     public App() {
 
         // ----------------------------------------------------------------
-<<<<<<< HEAD
         stat.addQueue(new int[] { 0, 1 });
         stat.addQueue(new int[] { 0, 0 });
         stat.addQueue(new int[] { 0, 1 });
         stat.addQueue(new int[] { 1, 1 });
         // ------------------------------------------------------------
-=======
->>>>>>> 9a596cad4f48f6d78d3f96e71bdc0e009d15b737
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // frame.setLocationRelativeTo(null);
         // frame.setBounds(0, 0, 1000, 1000);
@@ -60,27 +57,11 @@ public class App {
         test.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
                 preview(2);
                 // mapSize.put(3, new Table3_3(frame));
                 // Table3_3 table3 = new Table3_3(frame);
                 // Table2_2 table2 = new Table2_2(frame);
                 mainPanel.setVisible(false);
-=======
-                mainPanel.setVisible(false);
-                mapSize.put(2, new Table2_2(frame));
-                mapSize.get(2).setVisbleTure();
-                stat.addQueue(new int[] { 0, 1 });
-                Tile tile = (mapSize.get(2).returnTable())[0][1];
-                tile.setOrder(1);
-                stat.addQueue(new int[] { 0, 0 });
-                ((mapSize.get(2).returnTable())[0][0]).setOrder(2);
-                setOrder(2, mapSize.get(2));
-
-                // mapSize.put(3, new Table3_3(frame));
-                // Table3_3 table3 = new Table3_3(frame);
-                // Table2_2 table2 = new Table2_2(frame);
->>>>>>> 9a596cad4f48f6d78d3f96e71bdc0e009d15b737
 
             }
 
@@ -104,20 +85,10 @@ public class App {
     // }
 
     public void preview(int size) {
-<<<<<<< HEAD
         mapSize.put(size, new Table2_2(frame));
         Table2_2 preview = (Table2_2) mapSize.get(size);
         preview.setVisbleTure();
-        preview.Changecolor2525();
-=======
-        // int quantity = stat.getQuantity();
-        // for (int iPreview = 0; iPreview < quantity; iPreview++) {
-        // int[] xYPreview = stat.getQueues(iPreview);
-        // Tile[][] map = mapSize.get(2).getTile();
-        // map[xYPreview[0]][xYPreview[1]].ChangeColor();
-        // map[xYPreview[0]][xYPreview[1]].setOrder(iPreview + 1);
-        // System.out.println(xYPreview);
->>>>>>> 9a596cad4f48f6d78d3f96e71bdc0e009d15b737
+        //preview.Changecolor2525();
 
     }
     // int quantity = stat.getQuantity();

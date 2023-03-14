@@ -1,4 +1,4 @@
-package App.object;
+package App.object.FTile;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;

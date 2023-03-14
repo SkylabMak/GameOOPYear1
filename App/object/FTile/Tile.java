@@ -1,4 +1,4 @@
-package App.object;
+package App.object.FTile;
 
 import javax.swing.JPanel;
 import javax.swing.DefaultButtonModel;
@@ -12,11 +12,13 @@ import java.awt.Dimension;
 
 import javax.swing.Timer;
 
+import App.object.Stat;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Tile {
-    private JButton btnTile = new JButton();
+    protected JButton btnTile = new JButton();
     private int OwnOrder = -1;
     Timer timer;
     Color baseColor = Color.white;
@@ -31,9 +33,9 @@ public class Tile {
     public Tile(JPanel jPanel) {
         btnTile.addMouseListener(new mouseEvent());
         // btnTile.addActionListener(new AllButtonListener());
-        btnTile.setPreferredSize(new Dimension(200, 200));
         btnTile.setBackground(baseColor);
         btnTile.setModel(new FixedStateButtonModel());
+        //btnTile.setPreferredSize(new Dimension(200, 200));
     }
 
     public JButton returnBTn() {
@@ -93,7 +95,7 @@ public class Tile {
     public class mouseEvent extends MouseAdapter {
 
         public void mouseEntered(MouseEvent me) {
-            btnTile.setBackground(Color.ORANGE);
+            btnTile.setBackground(new Color(255, 204, 0));
         }
 
         public void mouseExited(MouseEvent me) {
@@ -105,7 +107,7 @@ public class Tile {
         }
 
         public void presesdAndHold() {
-            btnTile.setBackground(Color.MAGENTA);
+            btnTile.setBackground(new Color(0, 107, 179));
             System.out.println("this is Tile mouse Pressed");
         }
 

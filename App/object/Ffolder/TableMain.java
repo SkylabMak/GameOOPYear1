@@ -1,6 +1,6 @@
 package App.object.Ffolder;
 
-import App.object.Tile;
+import App.object.FTile.Tile;
 
 public abstract class TableMain {
     public Tile[][] tile;
@@ -10,4 +10,6 @@ public abstract class TableMain {
     };
 
     public abstract Tile[][] returnTable();
+
+    public abstract void setVisbleTure();
 }

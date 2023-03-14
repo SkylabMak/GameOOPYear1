@@ -29,6 +29,7 @@ public class App {
         stat.addQueue(new int[] { 0, 0 });
         stat.addQueue(new int[] { 0, 1 });
         stat.addQueue(new int[] { 1, 1 });
+        
         // ------------------------------------------------------------
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // frame.setLocationRelativeTo(null);

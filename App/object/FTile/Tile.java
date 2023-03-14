@@ -18,13 +18,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Tile {
-<<<<<<< HEAD:App/object/tile.java
-    private JButton btnTile = new JButton();
-    private ArrayList<Integer> ownOrder = new ArrayList<>();
-=======
     protected JButton btnTile = new JButton();
-    private int OwnOrder = -1;
->>>>>>> 50fcb1fb8d6c55e3e63adc414903db046d1e0646:App/object/FTile/Tile.java
+    private ArrayList<Integer> ownOrder = new ArrayList<>();
     Timer timer;
     Color baseColor = Color.white;
 
@@ -48,7 +43,7 @@ public class Tile {
         // btnTile.addActionListener(new AllButtonListener());
         btnTile.setBackground(baseColor);
         btnTile.setModel(new FixedStateButtonModel());
-        //btnTile.setPreferredSize(new Dimension(200, 200));
+        // btnTile.setPreferredSize(new Dimension(200, 200));
     }
 
     public JButton returnBTn() {

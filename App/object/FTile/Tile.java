@@ -54,6 +54,10 @@ public class Tile {
         btnTile.setBackground(Color.white);
     }
 
+    public void ChangeColor2() {// wait Local variables
+        btnTile.setBackground(Color.black);
+    }
+
     public void settimeout() {
         int secord = 1;
         ActionListener taskperformer = new ActionListener() {

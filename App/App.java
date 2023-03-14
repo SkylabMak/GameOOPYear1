@@ -23,7 +23,6 @@ public class App {
     HashMap<Integer, TableMain> mapSize = new HashMap<>();
 
     public static void main(String args[]) {
-
     }
 
     public App() {
@@ -98,6 +97,14 @@ public class App {
         // System.out.println(xYPreview);
 
     }
+    // int quantity = stat.getQuantity();
+    // for (int iPreview = 0; iPreview < quantity; iPreview++) {
+    // int[] xYPreview = stat.getQueues(iPreview);
+    // Tile[][] map = mapSize.get(2).getTile();
+    // map[xYPreview[0]][xYPreview[1]].ChangeColor();
+    // map[xYPreview[0]][xYPreview[1]].setOrder(iPreview + 1);
+    // System.out.println(xYPreview);
+    // }
 
     public void listenerPress(int size) {
 
@@ -158,6 +165,10 @@ public class App {
             xY[i] = (int) (Math.random() * (size));
         }
         return xY;
+    }
+
+    public void Showpreview() {
+
     }
 
 }

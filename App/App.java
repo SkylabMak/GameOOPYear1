@@ -14,23 +14,21 @@ import javax.swing.Timer;
 
 //object-----------
 import App.object.*;
+import App.object.FTile.Tile;
 import App.object.Ffolder.*;
 
 public class App {
     JFrame frame = new JFrame("My First GUI");
     Stat stat = new Stat();
-    HashMap<Integer, TableMain> mapSize = new HashMap<>();
+    HashMap<Integer, TableMain> mapSize;
 
     public static void main(String args[]) {
 
     }
 
     public App() {
-        // ----------------------------------------------------------------
 
-        // stat.addQueue(new int[] { 0, 1 });
-        // stat.addQueue(new int[] { 1, 1 });
-        // ------------------------------------------------------------
+        // ----------------------------------------------------------------
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // frame.setLocationRelativeTo(null);
         // frame.setBounds(0, 0, 1000, 1000);
@@ -41,7 +39,7 @@ public class App {
         JButton test = new JButton("Test");// button start
         // frame.setLayout(new FlowLayout());
         btnStart.setPreferredSize(new Dimension(200, 100));
-        mainPanel.setBackground(Color.ORANGE);
+        mainPanel.setBackground(new Color(255, 204, 0));
         btnStart.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -82,7 +80,7 @@ public class App {
     public void start() {// satrt
         stat.reset();
         stat.setMapSize(frame);
-        // mapSize = stat.getMapSize(frame);
+        mapSize = stat.getMapSize(frame);
         play(2);
     }
 
@@ -99,7 +97,6 @@ public class App {
         // map[xYPreview[0]][xYPreview[1]].setOrder(iPreview + 1);
         // System.out.println(xYPreview);
 
-        // }
     }
 
     public void listenerPress(int size) {

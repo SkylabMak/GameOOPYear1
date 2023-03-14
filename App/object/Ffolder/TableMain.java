@@ -1,6 +1,6 @@
 package App.object.Ffolder;
 
-import App.object.Tile;
+import App.object.FTile.Tile;
 
 public abstract class TableMain {
     // public Tile[][] tile;

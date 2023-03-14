@@ -44,4 +44,8 @@ public class Table3_3 extends TableMain {
     public String toString() {
         return String.format("this is Table3_3 class");
     }
+
+    public Tile[][] returnTable() {
+        return tile;
+    }
 }

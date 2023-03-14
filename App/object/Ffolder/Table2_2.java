@@ -58,4 +58,8 @@ public class Table2_2 extends TableMain {// extends JFrame
     public String toString() {
         return String.format("this is Table2_2 class");
     }
+
+    public Tile[][] returnTable() {
+        return tile;
+    }
 }

@@ -16,8 +16,10 @@ public class Table2_2 extends TableMain {// extends JFrame
 
     private Tile[][] tile2_2 = { { tile1, tile2 }, { tile3, tile4 } };
 
+    JPanel panel1 = new JPanel();
+
     public Table2_2(JFrame f) {
-        JPanel panel1 = new JPanel();
+
         panel1.setLayout(null);
 
         // panel1.setBounds(0, 0, 400, 400);
@@ -46,7 +48,7 @@ public class Table2_2 extends TableMain {// extends JFrame
         panel1.add(tile2.returnBTn());
         panel1.add(tile3.returnBTn());
         panel1.add(tile4.returnBTn());
-        panel1.setVisible(true);
+        panel1.setVisible(false);
         f.add(panel1);
 
     }
@@ -61,5 +63,10 @@ public class Table2_2 extends TableMain {// extends JFrame
 
     public Tile[][] returnTable() {
         return tile;
+    }
+
+    @Override
+    public void setVisbleTure() {
+        panel1.setVisible(true);
     }
 }

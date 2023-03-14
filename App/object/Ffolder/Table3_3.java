@@ -23,18 +23,36 @@ public class Table3_3 extends TableMain {
     public Table3_3(JFrame f) {
         JPanel panel1 = new JPanel();
         panel1.setLayout(null);
-        panel1.setSize((int) f.getPreferredSize().getWidth(), (int) f.getPreferredSize().getHeight());
+
+        // panel1.setBounds(0, 0, 400, 400);
+        panel1.setSize((int) f.getSize().getWidth(), (int) f.getSize().getHeight());
+        System.out.println(f.getSize().getWidth() + " " + f.getPreferredSize().getHeight());
+        // panel1.setBounds(0, 0, 800, 800);
+        // panel1.setPreferredSize(new Dimension(600, 600));
         panel1.setBackground(new Color(51, 153, 255));
-        int centerX = (int) panel1.getPreferredSize().getWidth();
-        int centerY = (int) panel1.getPreferredSize().getHeight();
+
+        System.out.println(tile1);
+
+        int centerX = (int) (panel1.getPreferredSize().getWidth()) / 2;// this is center in x axis
+        int centerY = (int) (panel1.getPreferredSize().getHeight()) / 2;// this is center in y axis
         Dimension size = (tile1.returnBTn()).getPreferredSize();
-        (tile1.returnBTn()).setBounds((int) (centerX - size.getWidth() - 10), (int) (centerY - size.getHeight() - 10),
+        System.out.println(size.height + " " + size.width);
+        (tile1.returnBTn()).setBounds((int) (centerX - size.getWidth() - 15), (int) (centerY - size.getHeight() - 15),
+                size.width, size.height);
+        (tile2.returnBTn()).setBounds((int) (centerX - 5), (int) (centerY - size.getHeight() - 15),
+                size.width, size.height);
+        (tile3.returnBTn()).setBounds((int) (centerX + size.getWidth() + 5), (int) (centerY - size.getHeight() - 15),
+                size.width, size.height);
+        (tile4.returnBTn()).setBounds((int) (centerX - size.getWidth() - 15), (int) (centerY - 5),
                 size.width, size.height);
 
         panel1.add(tile1.returnBTn());
+        panel1.add(tile2.returnBTn());
+        panel1.add(tile3.returnBTn());
+        panel1.add(tile4.returnBTn());
+        
         panel1.setVisible(true);
         f.add(panel1);
-
     }
 
     public Tile[][] getTile3_3() {

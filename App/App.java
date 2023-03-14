@@ -48,8 +48,8 @@ public class App {
         test.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Table3_3 table3 = new Table3_3(frame);
-                Table2_2 table2 = new Table2_2(frame);
+                Table3_3 table3 = new Table3_3(frame);
+                //Table2_2 table2 = new Table2_2(frame);
                 mainPanel.setVisible(false);
             }
 

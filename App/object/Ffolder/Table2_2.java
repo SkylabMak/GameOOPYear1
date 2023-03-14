@@ -48,7 +48,6 @@ public class Table2_2 extends TableMain {// extends JFrame
         panel1.add(tile4.returnBTn());
         panel1.setVisible(true);
         f.add(panel1);
-
     }
 
     public Tile[][] getTile2_2() {

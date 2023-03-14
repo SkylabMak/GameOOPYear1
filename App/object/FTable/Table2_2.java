@@ -1,4 +1,4 @@
-package App.object.Ffolder;
+package App.object.FTable;
 
 import java.awt.*;
 import javax.swing.*;
@@ -9,7 +9,7 @@ import App.object.FTile.Tile_Size1;
 public class Table2_2 extends TableMain {// extends JFrame
 
     // public Tile[][] tile = new Tile[2][2];
-    
+
     Tile_Size1 tile1 = new Tile_Size1(new JPanel());
     Tile_Size1 tile2 = new Tile_Size1(new JPanel());
     Tile_Size1 tile3 = new Tile_Size1(new JPanel());
@@ -38,7 +38,8 @@ public class Table2_2 extends TableMain {// extends JFrame
         int centerY = (int) (panel1.getPreferredSize().getHeight()) / 2;// this is center in y axis
         Dimension size = (tile1.returnBTn()).getPreferredSize();
         System.out.println(size.height + " " + size.width);
-        (tile1.returnBTn()).setBounds((int) (centerX - size.getWidth() - margin), (int) (centerY - size.getHeight() - margin),
+        (tile1.returnBTn()).setBounds((int) (centerX - size.getWidth() - margin),
+                (int) (centerY - size.getHeight() - margin),
                 size.width, size.height);
         (tile2.returnBTn()).setBounds((int) (centerX + margin), (int) (centerY - size.getHeight() - margin),
                 size.width, size.height);

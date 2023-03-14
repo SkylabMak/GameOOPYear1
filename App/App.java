@@ -14,13 +14,13 @@ import javax.swing.Timer;
 
 //object-----------
 import App.object.*;
+import App.object.FTable.*;
 import App.object.FTile.Tile;
-import App.object.Ffolder.*;
 
 public class App {
     JFrame frame = new JFrame("My First GUI");
     Stat stat = new Stat();
-    HashMap<Integer, TableMain> mapSize;
+    HashMap<Integer, TableMain> mapSize = new HashMap<>();
 
     public static void main(String args[]) {
 

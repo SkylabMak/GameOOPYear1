@@ -112,12 +112,9 @@ public class Tile {
         }
 
         public void mousePressed(MouseEvent me) {
-            presesdAndHold();
-        }
-
-        public void presesdAndHold() {
             btnTile.setBackground(new Color(0, 107, 179));
             System.out.println("this is Tile mouse Pressed");
+
         }
 
         public void mouseReleased(MouseEvent me) {

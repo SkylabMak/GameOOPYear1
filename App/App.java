@@ -54,8 +54,11 @@ public class App {
         test.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                mapSize.put(2, new Table2_2(frame));
+                mapSize.get(2).setVisbleTure();
+                // mapSize.put(3, new Table3_3(frame));
                 // Table3_3 table3 = new Table3_3(frame);
-                Table2_2 table2 = new Table2_2(frame);
+                // Table2_2 table2 = new Table2_2(frame);
                 mainPanel.setVisible(false);
             }
 

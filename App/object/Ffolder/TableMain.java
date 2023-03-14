@@ -10,4 +10,6 @@ public abstract class TableMain {
     };
 
     public abstract Tile[][] returnTable();
+
+    public abstract void setVisbleTure();
 }

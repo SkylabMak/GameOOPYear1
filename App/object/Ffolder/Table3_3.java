@@ -48,4 +48,10 @@ public class Table3_3 extends TableMain {
     public Tile[][] returnTable() {
         return tile;
     }
+
+    @Override
+    public void setVisbleTure() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setVisbleTure'");
+    }
 }

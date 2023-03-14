@@ -62,7 +62,7 @@ public class Table2_2 extends TableMain {// extends JFrame
     }
 
     public Tile[][] returnTable() {
-        return tile;
+        return tile2_2;
     }
 
     @Override

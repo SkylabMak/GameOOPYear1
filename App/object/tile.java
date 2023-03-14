@@ -6,7 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
+import java.util.ArrayList;
 import java.awt.Color;
 import java.awt.Dimension;
 
@@ -17,12 +17,20 @@ import java.awt.event.ActionListener;
 
 public class Tile {
     private JButton btnTile = new JButton();
-    private int OwnOrder = -1;
+    private ArrayList<Integer> ownOrder = new ArrayList<>();
     Timer timer;
     Color baseColor = Color.white;
 
     public void setOrder(int newOrder) {
-        this.OwnOrder = newOrder;
+        this.ownOrder.add(newOrder);
+    }
+
+    public void removeOrder() {
+        ownOrder.removeAll(ownOrder);
+    }
+
+    public ArrayList<Integer> getOrder() {
+        return this.ownOrder;
     }
 
     public Tile() {
@@ -78,14 +86,15 @@ public class Tile {
 
         public void check() {
             Stat stat = new Stat();
-            if (OwnOrder == stat.getQuantity()) {
-                stat.upLevel();
-            } else if (OwnOrder != stat.getCurrentOrder()) {
-                stat.decreaseHeart();
-            } else {
-                stat.UpOrder();
-            }
-            throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+            // if (OwnOrder == stat.getQuantity()) {
+            // stat.upLevel();
+            // } else if (OwnOrder != stat.getCurrentOrder()) {
+            // stat.decreaseHeart();
+            // } else {
+            // stat.UpOrder();
+            // }
+            // throw new UnsupportedOperationException("Unimplemented method
+            // 'actionPerformed'");
         }
 
     }

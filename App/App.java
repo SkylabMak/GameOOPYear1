@@ -6,6 +6,8 @@ import javax.swing.*;
 import java.awt.FlowLayout;
 
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.awt.event.ActionEvent;
 import javax.swing.Timer;
@@ -25,10 +27,9 @@ public class App {
 
     public App() {
         // ----------------------------------------------------------------
-        stat.addQueue(new int[] { 0, 1 });
-        stat.addQueue(new int[] { 0, 0 });
-        stat.addQueue(new int[] { 0, 1 });
-        stat.addQueue(new int[] { 1, 1 });
+
+        // stat.addQueue(new int[] { 0, 1 });
+        // stat.addQueue(new int[] { 1, 1 });
         // ------------------------------------------------------------
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // frame.setLocationRelativeTo(null);
@@ -54,12 +55,20 @@ public class App {
         test.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                mainPanel.setVisible(false);
                 mapSize.put(2, new Table2_2(frame));
                 mapSize.get(2).setVisbleTure();
+                stat.addQueue(new int[] { 0, 1 });
+                Tile tile = (mapSize.get(2).returnTable())[0][1];
+                tile.setOrder(1);
+                stat.addQueue(new int[] { 0, 0 });
+                ((mapSize.get(2).returnTable())[0][0]).setOrder(2);
+                setOrder(2, mapSize.get(2));
+
                 // mapSize.put(3, new Table3_3(frame));
                 // Table3_3 table3 = new Table3_3(frame);
                 // Table2_2 table2 = new Table2_2(frame);
-                mainPanel.setVisible(false);
+
             }
 
         });
@@ -81,7 +90,7 @@ public class App {
 
     // }
 
-    public void previewAndSetOrder(int size) {
+    public void preview(int size) {
         // int quantity = stat.getQuantity();
         // for (int iPreview = 0; iPreview < quantity; iPreview++) {
         // int[] xYPreview = stat.getQueues(iPreview);
@@ -103,10 +112,47 @@ public class App {
             for (int iRandom = 0; iRandom < quantity; iRandom++) {
                 stat.addQueue(randomZY(size));
             }
-            previewAndSetOrder(size);
+            preview(size);
             listenerPress(size);
-
         }
+    }
+
+    public void setOrder(int size, TableMain table) {
+        Tile[][] arrayTable = table.returnTable();
+        int quantity = stat.getQuantity();
+        ArrayList<int[]> queue = Stat.queue;
+        if (queue.size() > quantity) {
+            System.out.println("if");
+            for (int iQueue = 0; iQueue < queue.size(); iQueue++) {
+                int[] queueItem = queue.get(iQueue);
+                Tile tile = arrayTable[queueItem[0]][queueItem[1]];
+                tile.removeOrder();
+            }
+            queue.removeAll(queue);
+            for (int iRandom = 0; iRandom < quantity; iRandom++) {
+                stat.addQueue(randomZY(size));
+                int[] queueItem = queue.get(iRandom);
+                Tile tile = arrayTable[queueItem[0]][queueItem[1]];
+                tile.setOrder(queue.size());
+            }
+        } else {
+            System.out.println("else");
+            stat.addQueue(randomZY(size));
+            int[] queueItem = queue.get(queue.size() - 1);
+            Tile tile = arrayTable[queueItem[0]][queueItem[1]];
+            tile.setOrder(queue.size());
+        }
+        for (int testI = 0; testI < queue.size(); testI++) {
+            int[] queueItem = queue.get(testI);
+            Tile tile = arrayTable[queueItem[0]][queueItem[1]];
+            System.out.println("position" + testI + Arrays.toString(queue.get(testI)));
+
+            System.out.println("order" + tile.getOrder());
+        }
+
+        //
+        // Table2_2 table2_2 = new Table2_2(frame);
+
     }
 
     public int[] randomZY(int size) {// random

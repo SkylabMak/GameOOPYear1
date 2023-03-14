@@ -46,7 +46,7 @@ public class Table3_3 extends TableMain {
     }
 
     public Tile[][] returnTable() {
-        return tile;
+        return tile3_3;
     }
 
     @Override

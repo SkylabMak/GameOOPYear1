@@ -10,3 +10,5 @@ git push -u origin main
 git remote add origin https://github.com/SkylabMak/GameOOPYear1.git
 git branch -M main
 git push -u origin main
+
+git pull origin main

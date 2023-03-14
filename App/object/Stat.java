@@ -14,7 +14,7 @@ public class Stat {
     private static int level = 0;
     private static int heart = 3;
     private static int size = 2;
-    private static int quantity = 1;
+    private static int quantity = 3;
     public static boolean status = true;
     private static int currentOrder = 1;
     public static ArrayList<int[]> queue = new ArrayList<>();

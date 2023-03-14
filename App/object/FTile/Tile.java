@@ -1,4 +1,4 @@
-package App.object;
+package App.object.FTile;
 
 import javax.swing.JPanel;
 import javax.swing.DefaultButtonModel;
@@ -6,23 +6,38 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
+import java.util.ArrayList;
 import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.Timer;
 
+import App.object.Stat;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Tile {
+<<<<<<< HEAD:App/object/tile.java
     private JButton btnTile = new JButton();
+    private ArrayList<Integer> ownOrder = new ArrayList<>();
+=======
+    protected JButton btnTile = new JButton();
     private int OwnOrder = -1;
+>>>>>>> 50fcb1fb8d6c55e3e63adc414903db046d1e0646:App/object/FTile/Tile.java
     Timer timer;
     Color baseColor = Color.white;
 
     public void setOrder(int newOrder) {
-        this.OwnOrder = newOrder;
+        this.ownOrder.add(newOrder);
+    }
+
+    public void removeOrder() {
+        ownOrder.removeAll(ownOrder);
+    }
+
+    public ArrayList<Integer> getOrder() {
+        return this.ownOrder;
     }
 
     public Tile() {
@@ -31,9 +46,9 @@ public class Tile {
     public Tile(JPanel jPanel) {
         btnTile.addMouseListener(new mouseEvent());
         // btnTile.addActionListener(new AllButtonListener());
-        btnTile.setPreferredSize(new Dimension(200, 200));
         btnTile.setBackground(baseColor);
         btnTile.setModel(new FixedStateButtonModel());
+        //btnTile.setPreferredSize(new Dimension(200, 200));
     }
 
     public JButton returnBTn() {
@@ -81,14 +96,15 @@ public class Tile {
 
         public void check() {
             Stat stat = new Stat();
-            if (OwnOrder == stat.getQuantity()) {
-                stat.upLevel();
-            } else if (OwnOrder != stat.getCurrentOrder()) {
-                stat.decreaseHeart();
-            } else {
-                stat.UpOrder();
-            }
-            throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+            // if (OwnOrder == stat.getQuantity()) {
+            // stat.upLevel();
+            // } else if (OwnOrder != stat.getCurrentOrder()) {
+            // stat.decreaseHeart();
+            // } else {
+            // stat.UpOrder();
+            // }
+            // throw new UnsupportedOperationException("Unimplemented method
+            // 'actionPerformed'");
         }
 
     }
@@ -96,7 +112,7 @@ public class Tile {
     public class mouseEvent extends MouseAdapter {
 
         public void mouseEntered(MouseEvent me) {
-            btnTile.setBackground(Color.ORANGE);
+            btnTile.setBackground(new Color(255, 204, 0));
         }
 
         public void mouseExited(MouseEvent me) {
@@ -108,7 +124,7 @@ public class Tile {
         }
 
         public void presesdAndHold() {
-            btnTile.setBackground(Color.MAGENTA);
+            btnTile.setBackground(new Color(0, 107, 179));
             System.out.println("this is Tile mouse Pressed");
         }
 

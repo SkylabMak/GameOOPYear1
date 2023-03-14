@@ -53,6 +53,7 @@ public class Tile {
     public void ChangeColor() {// wait Local variables
         btnTile.setBackground(Color.white);
     }
+
     public void ChangeColor2() {// wait Local variables
         btnTile.setBackground(Color.black);
     }
@@ -115,12 +116,9 @@ public class Tile {
         }
 
         public void mousePressed(MouseEvent me) {
-            presesdAndHold();
-        }
-
-        public void presesdAndHold() {
             btnTile.setBackground(new Color(0, 107, 179));
             System.out.println("this is Tile mouse Pressed");
+
         }
 
         public void mouseReleased(MouseEvent me) {
@@ -146,12 +144,9 @@ public class Tile {
         }
 
     }
-    
 
     public String toString() {
         return String.format("this is Tile");
     }
-
-
 
 }

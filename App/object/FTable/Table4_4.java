@@ -1,4 +1,4 @@
-package App.object.Ffolder;
+package App.object.FTable;
 
 import java.awt.*;
 import javax.swing.*;

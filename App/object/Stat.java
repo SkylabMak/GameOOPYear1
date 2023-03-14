@@ -6,9 +6,9 @@ import java.util.HashMap; // import the HashMap class
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import App.object.Ffolder.Table2_2;
-import App.object.Ffolder.Table3_3;
-import App.object.Ffolder.TableMain;
+import App.object.FTable.Table2_2;
+import App.object.FTable.Table3_3;
+import App.object.FTable.TableMain;
 
 public class Stat {
     private static int level = 0;

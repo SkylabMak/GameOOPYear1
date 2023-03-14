@@ -2,10 +2,12 @@ package App.object.Ffolder;
 
 import App.object.Tile;
 
-public class TableMain {
+public abstract class TableMain {
     public Tile[][] tile;
 
     public Tile[][] getTile() {
         return tile;
     };
+
+    public abstract Tile[][] returnTable();
 }

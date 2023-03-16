@@ -24,7 +24,6 @@ public class Table2_2 extends TableMain {// extends JFrame
     JPanel panel1 = new JPanel();
 
     public Table2_2(JFrame f) {
-        JPanel panel1 = new JPanel();
         panel1.setLayout(null);
 
         // panel1.setBounds(0, 0, 400, 400);
@@ -49,17 +48,12 @@ public class Table2_2 extends TableMain {// extends JFrame
                 size.width, size.height);
         (tile4.returnBTn()).setBounds((int) (centerX + margin), (int) (centerY + margin),
                 size.width, size.height);
-        
-        JButton backButton = new JButton("Back");// go back
-        backButton.setBounds(50, 50, 100, 50);
-        backButton.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
-        panel1.add(backButton);
 
         panel1.add(tile1.returnBTn());
         panel1.add(tile2.returnBTn());
         panel1.add(tile3.returnBTn());
         panel1.add(tile4.returnBTn());
-        panel1.setVisible(true);
+        panel1.setVisible(false);
         f.add(panel1);
 
     }
@@ -78,8 +72,12 @@ public class Table2_2 extends TableMain {// extends JFrame
 
     @Override
     public void setVisbleTure() {
-        panel1.setVisible(false);
+        panel1.setVisible(true);
     }
 
+    @Override
+    public void setVisbleFlase() {
+        panel1.setVisible(false);
+    }
 
 }

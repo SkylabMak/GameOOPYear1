@@ -36,7 +36,6 @@ public class Table4_4 extends TableMain {
         JPanel panel1 = new JPanel();
 
         public Table4_4(JFrame f) {
-                JPanel panel1 = new JPanel();
                 panel1.setLayout(null);
 
                 // panel1.setBounds(0, 0, 400, 400);
@@ -98,6 +97,11 @@ public class Table4_4 extends TableMain {
                                 (int) (centerY + size.getWidth() + (2 * margin)),
                                 size.width, size.height);
 
+                JButton backButton = new JButton("Back");// go back
+                backButton.setBounds(15, 15, 90, 40);
+                backButton.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
+                panel1.add(backButton);
+
                 panel1.add(tile1.returnBTn());
                 panel1.add(tile2.returnBTn());
                 panel1.add(tile3.returnBTn());
@@ -115,7 +119,7 @@ public class Table4_4 extends TableMain {
                 panel1.add(tile15.returnBTn());
                 panel1.add(tile16.returnBTn());
 
-                panel1.setVisible(true);
+                panel1.setVisible(false);
                 f.add(panel1);
         }
 
@@ -127,12 +131,18 @@ public class Table4_4 extends TableMain {
                 return String.format("this is Table4_4 class");
         }
 
-    public Tile[][] returnTable() {
-        return tile;
-    }
+        public Tile[][] returnTable() {
+                return tile4_4;
+        }
 
         @Override
         public void setVisbleTure() {
+                panel1.setVisible(true);
+        }
+
+        @Override
+        public void setVisbleFlase() {
                 panel1.setVisible(false);
         }
+
 }

@@ -57,6 +57,7 @@ public class Stat {
         size = 2;
         quantity = 1;
         currentOrder = 1;
+        app.restart();
     }
 
     public void decreaseHeart() {

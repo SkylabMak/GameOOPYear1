@@ -36,7 +36,6 @@ public class Table4_4 extends TableMain {
         JPanel panel1 = new JPanel();
 
         public Table4_4(JFrame f) {
-                JPanel panel1 = new JPanel();
                 panel1.setLayout(null);
 
                 // panel1.setBounds(0, 0, 400, 400);
@@ -115,7 +114,7 @@ public class Table4_4 extends TableMain {
                 panel1.add(tile15.returnBTn());
                 panel1.add(tile16.returnBTn());
 
-                panel1.setVisible(true);
+                panel1.setVisible(false);
                 f.add(panel1);
         }
 
@@ -133,6 +132,12 @@ public class Table4_4 extends TableMain {
 
         @Override
         public void setVisbleTure() {
+                panel1.setVisible(true);
+        }
+
+        @Override
+        public void setVisbleFlase() {
                 panel1.setVisible(false);
         }
+
 }

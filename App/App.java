@@ -10,7 +10,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.awt.event.ActionEvent;
-import javax.swing.Timer;
+import java.util.Timer;
+import java.util.TimerTask;
 
 //object-----------
 import App.object.*;
@@ -18,9 +19,10 @@ import App.object.FTable.*;
 import App.object.FTile.Tile;
 
 public class App {
+    public static int iCountdown = 0;
     JFrame frame = new JFrame("My First GUI");
     Stat stat = new Stat(this);
-    HashMap<Integer, TableMain> mapSize = new HashMap<>();
+    HashMap<Integer, TableMain> mapSizeApp = new HashMap<>();
 
     public static void main(String args[]) {
     }
@@ -53,14 +55,15 @@ public class App {
             @Override
             public void actionPerformed(ActionEvent e) {
                 mainPanel.setVisible(false);
-                mapSize.put(2, new Table2_2(frame));
-                mapSize.get(2).setVisbleTure();
+                mapSizeApp.put(2, new Table2_2(frame));
+                mapSizeApp.get(2).setVisbleTure();
                 stat.addQueue(new int[] { 0, 1 });
-                Tile tile = (mapSize.get(2).returnTable())[0][1];
+                Tile tile = (mapSizeApp.get(2).returnTable())[0][1];
                 tile.setOrder(1);
                 stat.addQueue(new int[] { 0, 0 });
-                ((mapSize.get(2).returnTable())[0][0]).setOrder(2);
+                ((mapSizeApp.get(2).returnTable())[0][0]).setOrder(2);
                 setOrder(2);
+                preview(2, mapSizeApp.get(2));
 
                 // mapSize.put(3, new Table3_3(frame));
                 // Table3_3 table3 = new Table3_3(frame);
@@ -78,52 +81,54 @@ public class App {
 
     public void start() {// satrt
         stat.reset();
-        stat.setMapSize(frame);
-        mapSize = stat.getMapSize(frame);
+        mapSizeApp.put(Integer.valueOf(2), new Table2_2(frame));
+        mapSizeApp.put(Integer.valueOf(3), new Table3_3(frame));
+        mapSizeApp.put(Integer.valueOf(4), new Table4_4(frame));
         play(2);
+    }
+
+    public void disableOldTable(int size) {
+        mapSizeApp.get(size).setVisbleFlase();
+    }
+
+    public void play(int size) {// play
+        mapSizeApp.get(size).setVisbleTure();
+        setOrder(size);
     }
 
     // public void broad() {// create borad
 
     // }
 
-    public void preview(int size) {
-        // int quantity = stat.getQuantity();
-        // for (int iPreview = 0; iPreview < quantity; iPreview++) {
-        // int[] xYPreview = stat.getQueues(iPreview);
-        // Tile[][] map = mapSize.get(2).getTile();
-        // map[xYPreview[0]][xYPreview[1]].ChangeColor();
-        // map[xYPreview[0]][xYPreview[1]].setOrder(iPreview + 1);
-        // System.out.println(xYPreview);
+    public void preview(int size, TableMain table) {
+        int delay = 700;
+        stat.getQueues(iCountdown);
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+
+                // int i = Integer.parseInt(args[0]);
+                Tile[][] tile = table.returnTable();
+                int[] position = stat.getQueues(iCountdown);
+                System.out.println("loop time run" + iCountdown);
+                tile[position[0]][position[1]].changecolorAndBack(Color.MAGENTA);
+                iCountdown++;
+                if (iCountdown == Stat.queue.size())
+                    timer.cancel();
+                // System.out.println(iCountdown);
+
+            }
+        }, 1, delay);
 
     }
-    // int quantity = stat.getQuantity();
-    // for (int iPreview = 0; iPreview < quantity; iPreview++) {
-    // int[] xYPreview = stat.getQueues(iPreview);
-    // Tile[][] map = mapSize.get(2).getTile();
-    // map[xYPreview[0]][xYPreview[1]].ChangeColor();
-    // map[xYPreview[0]][xYPreview[1]].setOrder(iPreview + 1);
-    // System.out.println(xYPreview);
-    // }
 
     public void listenerPress(int size) {
 
     }
 
-    public void play(int size) {// play
-        setOrder(size);
-        // while (stat.getStatus()) {
-        // int quantity = stat.getQuantity();
-        // for (int iRandom = 0; iRandom < quantity; iRandom++) {
-        // stat.addQueue(randomZY(size));
-        // }
-        // preview(size);
-        // listenerPress(size);
-        // }
-    }
-
     public void setOrder(int size) {
-        Tile[][] arrayTable = mapSize.get(size).returnTable();
+        Tile[][] arrayTable = mapSizeApp.get(size).returnTable();
         int quantity = stat.getQuantity();
         ArrayList<int[]> queue = Stat.queue;
         if (queue.size() > quantity) {
@@ -163,7 +168,7 @@ public class App {
 
             System.out.println("order" + tile.getOrder());
         }
-
+        preview(size, mapSizeApp.get(size));
         //
         // Table2_2 table2_2 = new Table2_2(frame);
 

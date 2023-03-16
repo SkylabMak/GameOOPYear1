@@ -83,7 +83,7 @@ public class Tile {
     public void changecolorAndBack(Color color) {
         // Tile a = new Tile(btn_tileWhite, btn_tileBlack);
         btnTile.setBackground(color);
-        int delay = 100;
+        int delay = 700;
         Timer timer = new Timer(delay, e -> {
             btnTile.setBackground(baseColor);
             // btnTile.setEnabled(true);
@@ -95,7 +95,7 @@ public class Tile {
     public void changecolorCorrect(Color color) {
         // Tile a = new Tile(btn_tileWhite, btn_tileBlack);
         btnTile.setBackground(color);
-        int delay = 1000;
+        int delay = 500;
         Timer timer = new Timer(delay, e -> {
             btnTile.setBackground(color);
             // btnTile.setEnabled(true);
@@ -113,10 +113,15 @@ public class Tile {
         if (ownOrder.size() == 0) {
             incorrect();
         } else if (ownOrder.get(0) == stat.getQuantity()) {
+            Timer timer = new Timer(500, e -> {
+                stat.upLevel();
+            });
+            timer.setRepeats(false);// make sure the timer only runs onc
+            timer.start();
             ownOrder.removeAll(ownOrder);
             System.out.println("depleted");
             changecolorAndBack(Color.green);
-            stat.upLevel();
+
         } else if (ownOrder.get(0) == stat.getCurrentOrder()) {
             stat.UpOrder();
             System.out.println("corrct");

@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import App.App;
 import App.object.FTable.Table2_2;
 import App.object.FTable.Table3_3;
+import App.object.FTable.Table4_4;
 import App.object.FTable.TableMain;
 
 public class Stat {
@@ -34,6 +35,8 @@ public class Stat {
     public void setMapSize(JFrame frame) {
         mapSize.put(Integer.valueOf(2), new Table2_2(frame));
         mapSize.put(Integer.valueOf(3), new Table3_3(frame));
+        mapSize.put(Integer.valueOf(4), new Table4_4(frame));
+        System.out.println("setmapsize");
         // mapSize.put(Integer.valueOf(4), new Table2_2(frame));
     }
 
@@ -80,10 +83,12 @@ public class Stat {
         if (level < 6) {
             app.play(size);
         } else if (level == 6) {
+            app.disableOldTable(size);
             size++;// 3
             quantity = 1;// reset
             app.play(size);
         } else if (level == 11) {
+            app.disableOldTable(size);
             size++;// 4
             quantity = 1;// reset
             app.play(size);

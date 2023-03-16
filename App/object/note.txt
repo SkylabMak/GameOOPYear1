@@ -60,3 +60,15 @@ public void Changecolor(Color c){
 
     }
 }
+
+public void ChangecolorAfterClick(JButton btn) {
+            // Tile a = new Tile(btn_tileWhite, btn_tileBlack);
+            btn.setBackground(Color.CYAN);
+            int delay = 100;
+            Timer timer = new Timer(delay, e -> {
+                btn.setBackground(Color.WHITE);
+                btn.setEnabled(true);
+            });
+            timer.setRepeats(false);// make sure the timer only runs onc
+            timer.start();
+        }

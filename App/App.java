@@ -1,6 +1,7 @@
 package App;
 
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Dimension;
 import javax.swing.*;
 import java.awt.FlowLayout;
@@ -8,6 +9,7 @@ import java.awt.Toolkit;
 import java.awt.Font;
 
 import java.awt.event.ActionListener;
+import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -43,7 +45,7 @@ public class App {
         JPanel mainPanel = new JPanel();
         JButton btnStart = new JButton("Start");// button start
         JButton test = new JButton("Test");// button start
-        // frame.setLayout(new FlowLayout());
+        JLabel windows = new JLabel("WINDOWS");// name
         mainPanel.setBackground(new Color(51, 153, 230));
         btnStart.addActionListener(new ActionListener() {
             @Override
@@ -57,6 +59,22 @@ public class App {
         test.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                removeName(windows);
+
+                // JButton backButton = new JButton("Back");
+                // backButton.setBounds((frame.getWidth()/2) - 100, (frame.getHeight()/2), 400, 100);
+                // backButton.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
+                // mainPanel.add(backButton);
+                // frame.add(mainPanel);
+                // backButton.addActionListener(new ActionListener() { 
+                //     public void actionPerformed(ActionEvent e) { 
+                //       returnMainPanel();
+                //     }
+                //     private void returnMainPanel() {
+                //         mainPanel.setVisible(true);
+                //     } 
+                //   } );
+
                 mainPanel.setVisible(false);
                 mapSize.put(2, new Table2_2(frame));
                 mapSize.get(2).setVisbleTure();
@@ -76,20 +94,32 @@ public class App {
         });
         int margin = 200;
         mainPanel.setLayout(null);
-        btnStart.setBounds((frame.getWidth()/2) - margin, (frame.getHeight()/2), 400, 100);
-        test.setBounds((frame.getWidth()/2) - margin, (frame.getHeight()/2) + ((margin/2) + (margin/4)),400, 100);
+        Container c = frame.getContentPane();
 
-        btnStart.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
-        test.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
-       
+        btnStart.setBounds((frame.getWidth()/2) - margin, (frame.getHeight()/2), 400, 100);
+        test.setBounds((frame.getWidth()/2) - margin, (frame.getHeight()/2) + ((margin/2) + (margin/5)),400, 100);
+        windows.setBounds((frame.getWidth()/2) - (185), 100, 400, 500);
+
+        btnStart.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
+        test.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
+        windows.setFont(new Font("Comic Sans MS", Font.BOLD, 64));
+        windows.setForeground(Color.WHITE);
+
         mainPanel.add(btnStart);
         mainPanel.add(test);
+        c.add(windows);
         frame.add(mainPanel);
+        
         // frame.getContentPane().add(test);
         frame.setVisible(true);
     }
 
-    public void start() {// satrt
+    public JLabel removeName(JLabel windows) {
+        windows.setText("");
+        return windows;
+    }
+
+    public void start() {// start
         stat.reset();
         stat.setMapSize(frame);
         mapSize = stat.getMapSize(frame);

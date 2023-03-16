@@ -1,6 +1,8 @@
 package App.object.FTable;
 
 import java.awt.*;
+import java.nio.ByteOrder;
+
 import javax.swing.*;
 
 import App.object.FTile.Tile;
@@ -47,6 +49,11 @@ public class Table2_2 extends TableMain {// extends JFrame
                 size.width, size.height);
         (tile4.returnBTn()).setBounds((int) (centerX + margin), (int) (centerY + margin),
                 size.width, size.height);
+        
+        JButton backButton = new JButton("Back");// go back
+        backButton.setBounds(50, 50, 100, 50);
+        backButton.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
+        panel1.add(backButton);
 
         panel1.add(tile1.returnBTn());
         panel1.add(tile2.returnBTn());
@@ -54,6 +61,7 @@ public class Table2_2 extends TableMain {// extends JFrame
         panel1.add(tile4.returnBTn());
         panel1.setVisible(true);
         f.add(panel1);
+
     }
 
     public Tile[][] getTile2_2() {

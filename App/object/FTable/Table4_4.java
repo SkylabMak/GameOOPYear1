@@ -126,9 +126,9 @@ public class Table4_4 extends TableMain {
                 return String.format("this is Table4_4 class");
         }
 
-        public Tile[][] returnTable() {
-                return tile4_4;
-        }
+    public Tile[][] returnTable() {
+        return tile;
+    }
 
         @Override
         public void setVisbleTure() {

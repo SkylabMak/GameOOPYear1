@@ -124,7 +124,7 @@ public class Tile {
 
         } else if (ownOrder.get(0) == stat.getCurrentOrder()) {
             stat.UpOrder();
-            System.out.println("corrct");
+            System.out.println("correct");
             ownOrder.remove(0);
             changeColorAferTure = true;
             if (ownOrder.size() == 0) {
@@ -134,7 +134,7 @@ public class Tile {
             } else {
                 System.out.println("else order.size != 0");
                 // changecolorCorrect(Color.GRAY);
-                btnTile.setBackground(Color.GRAY);
+                btnTile.setBackground(Color.green);
             }
         } else {
             System.out.println("else");
@@ -167,21 +167,21 @@ public class Tile {
             // TODO Auto-generated method stub
             super.mouseClicked(e);
 
-            check();
+            // check();
         }
 
         @Override
         public void mouseEntered(MouseEvent me) {
-            if (changeColorAferTure)
-                return;
+            // if (changeColorAferTure)
+            //     return;
             btnTile.setBackground(new Color(255, 204, 0));
             // System.out.println("this is Tile mouse over");
         }
 
         @Override
         public void mouseExited(MouseEvent me) {
-            if (changeColorAferTure)
-                return;
+            // if (changeColorAferTure)
+            //     return;
             btnTile.setBackground(baseColor);
         }
 
@@ -189,13 +189,14 @@ public class Tile {
         public void mousePressed(MouseEvent me) {
             btnTile.setBackground(new Color(0, 107, 179));
             // System.out.println("this is Tile mouse Pressed");
+            check();
 
         }
 
         @Override
         public void mouseReleased(MouseEvent me) {
-            if (changeColorAferTure)
-                return;
+            // if (changeColorAferTure)
+            //     return;
             btnTile.setBackground(baseColor);
         }
     }

@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.*;
 import java.awt.FlowLayout;
+import java.awt.Toolkit;
+import java.awt.Font;
 
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -35,12 +37,16 @@ public class App {
         // frame.setBounds(0, 0, 1000, 1000);
         // frame.setLayout(null);
         frame.setSize(800, 800);
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
+        int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
+        frame.setLocation(x, y);
+        frame.setResizable(false);
         JPanel mainPanel = new JPanel();
         JButton btnStart = new JButton("Start");// button start
         JButton test = new JButton("Test");// button start
         // frame.setLayout(new FlowLayout());
-        btnStart.setPreferredSize(new Dimension(200, 100));
-        mainPanel.setBackground(new Color(255, 204, 0));
+        mainPanel.setBackground(new Color(51, 153, 230));
         btnStart.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -50,7 +56,6 @@ public class App {
             }
 
         });
-        test.setPreferredSize(new Dimension(200, 100));
         test.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -72,6 +77,14 @@ public class App {
             }
 
         });
+        int margin = 200;
+        mainPanel.setLayout(null);
+        btnStart.setBounds((frame.getWidth()/2) - margin, (frame.getHeight()/2), 400, 100);
+        test.setBounds((frame.getWidth()/2) - margin, (frame.getHeight()/2) + ((margin/2) + (margin/4)),400, 100);
+
+        btnStart.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+        test.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+       
         mainPanel.add(btnStart);
         mainPanel.add(test);
         frame.add(mainPanel);

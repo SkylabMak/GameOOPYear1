@@ -29,8 +29,13 @@ public class App {
     JFrame frame = new JFrame("My First GUI");
     Stat stat = new Stat(this);
     HashMap<Integer, TableMain> mapSizeApp = new HashMap<>();
+    public JLabel windows = new JLabel("WINDOWS");// name
 
     public App() {
+        mainPage();
+    }
+
+    public void mainPage() {
         // ----------------------------------------------------------------
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // frame.setLocationRelativeTo(null);
@@ -45,7 +50,7 @@ public class App {
         JPanel mainPanel = new JPanel();
         JButton btnStart = new JButton("Start");// button start
         JButton test = new JButton("Test");// button start
-        JLabel windows = new JLabel("WINDOWS");// name
+
         mainPanel.setBackground(new Color(51, 153, 230));
         btnStart.addActionListener(new ActionListener() {
             @Override
@@ -76,19 +81,20 @@ public class App {
                 // }
                 // } );
 
-                mainPanel.setVisible(false);
-                mapSizeApp.put(2, new Table2_2(frame));
-                mapSizeApp.get(2).setVisbleTure();
-                stat.addQueue(new int[] { 0, 1 });
-                Tile tile = (mapSizeApp.get(2).returnTable())[0][1];
-                tile.setOrder(1);
-                stat.addQueue(new int[] { 0, 0 });
-                ((mapSizeApp.get(2).returnTable())[0][0]).setOrder(2);
-                setOrder(2);
-                preview(2, mapSizeApp.get(2));
+                // mainPanel.setVisible(false);
+                // mapSizeApp.put(2, new Table2_2(frame));
+                // mapSizeApp.get(2).setVisbleTure();
+                // stat.addQueue(new int[] { 0, 1 });
+                // Tile tile = (mapSizeApp.get(2).returnTable())[0][1];
+                // tile.setOrder(1);
+                // stat.addQueue(new int[] { 0, 0 });
+                // ((mapSizeApp.get(2).returnTable())[0][0]).setOrder(2);
+                // setOrder(2);
+                // preview(2, mapSizeApp.get(2));
             }
 
         });
+
         test.setEnabled(false);
         int margin = 200;
         mainPanel.setLayout(null);
@@ -120,7 +126,7 @@ public class App {
 
     public void start(JLabel windows) {// start
         removeName(windows);
-
+        mapSizeApp.clear();
         stat.reset();
         mapSizeApp.put(Integer.valueOf(2), new Table2_2(frame));
         mapSizeApp.put(Integer.valueOf(3), new Table3_3(frame));

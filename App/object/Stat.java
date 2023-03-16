@@ -48,11 +48,11 @@ public class Stat {
 
     public void UpOrder() {
         currentOrder++;
-        System.out.println("upOrder");
+        // System.out.println("upOrder");
     }
 
     public void reset() {
-        level = 0;
+        level = 1;
         heart = 3;
         size = 2;
         quantity = 1;
@@ -61,6 +61,7 @@ public class Stat {
 
     public void decreaseHeart() {
         heart--;
+        System.out.println("heart = " + heart);
     }
 
     public void addQueue(int[] pointQueue) {
@@ -71,28 +72,30 @@ public class Stat {
         size = newSize;
     }
 
-    public void setQuantity(int newQuantity) {
-        quantity = newQuantity;
-    }
-
     public void upLevel() {
         currentOrder = 1;
-        System.out.println("uplevel");
         quantity++;
         level++;
-        if (level < 6) {
+        System.out.println("--------------------level = " + level + "--------------------------\n");
+        if (level < 3) {
             app.play(size);
-        } else if (level == 6) {
+            return;
+        } else if (level == 3) {
+            System.out.println("next table to 3");
             app.disableOldTable(size);
             size++;// 3
-            quantity = 1;// reset
+            quantity = 1;
             app.play(size);
-        } else if (level == 11) {
+            return;
+        } else if (level == 5) {
+            System.out.println("next table to 4");
             app.disableOldTable(size);
             size++;// 4
-            quantity = 1;// reset
+            quantity = 1;
             app.play(size);
+            return;
         }
+        app.play(size);
     }
 
     public int getCurrentOrder() {

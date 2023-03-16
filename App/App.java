@@ -21,16 +21,14 @@ import App.object.FTable.*;
 import App.object.FTile.Tile;
 
 public class App {
+    // https://www.roseindia.net/java/example/java/swing/jlayered-overlap-panel.shtml
+    JLayeredPane layeredPane;
     public static int iCountdown = 0;
     JFrame frame = new JFrame("My First GUI");
     Stat stat = new Stat(this);
     HashMap<Integer, TableMain> mapSizeApp = new HashMap<>();
 
-    public static void main(String args[]) {
-    }
-
     public App() {
-
         // ----------------------------------------------------------------
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // frame.setLocationRelativeTo(null);
@@ -41,7 +39,7 @@ public class App {
         int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
         int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
         frame.setLocation(x, y);
-        frame.setResizable(false);
+        frame.setResizable(false);// disable full windows
         JPanel mainPanel = new JPanel();
         JButton btnStart = new JButton("Start");// button start
         JButton test = new JButton("Test");// button start
@@ -69,22 +67,19 @@ public class App {
                 ((mapSizeApp.get(2).returnTable())[0][0]).setOrder(2);
                 setOrder(2);
                 preview(2, mapSizeApp.get(2));
-
-                // mapSize.put(3, new Table3_3(frame));
-                // Table3_3 table3 = new Table3_3(frame);
-                // Table2_2 table2 = new Table2_2(frame);
-
             }
 
         });
+        test.setEnabled(false);
         int margin = 200;
         mainPanel.setLayout(null);
-        btnStart.setBounds((frame.getWidth()/2) - margin, (frame.getHeight()/2), 400, 100);
-        test.setBounds((frame.getWidth()/2) - margin, (frame.getHeight()/2) + ((margin/2) + (margin/4)),400, 100);
+        btnStart.setBounds((frame.getWidth() / 2) - margin, (frame.getHeight() / 2), 400, 100);
+        test.setBounds((frame.getWidth() / 2) - margin, (frame.getHeight() / 2) + ((margin / 2) + (margin / 4)), 400,
+                100);
 
         btnStart.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
         test.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
-       
+
         mainPanel.add(btnStart);
         mainPanel.add(test);
         frame.add(mainPanel);
@@ -109,11 +104,18 @@ public class App {
         setOrder(size);
     }
 
-    // public void broad() {// create borad
-
-    // }
+    public void setAbleBtn(TableMain table, boolean tf) {
+        // System.out.println("setAble run");
+        Tile[][] tile = table.returnTable();
+        for (var row : tile) {
+            for (var col : row) {
+                col.setAbleBtn(tf);
+            }
+        }
+    }
 
     public void preview(int size, TableMain table) {
+        setAbleBtn(table, false);
         int delay = 700;
         stat.getQueues(iCountdown);
         Timer timer = new Timer();
@@ -124,15 +126,18 @@ public class App {
                 // int i = Integer.parseInt(args[0]);
                 Tile[][] tile = table.returnTable();
                 int[] position = stat.getQueues(iCountdown);
-                System.out.println("loop time run" + iCountdown);
+                // System.out.println("loop time run" + iCountdown);
                 tile[position[0]][position[1]].changecolorAndBack(Color.MAGENTA);
                 iCountdown++;
-                if (iCountdown == Stat.queue.size())
+                if (iCountdown == Stat.queue.size()) {
+                    iCountdown = 0;
+                    setAbleBtn(table, true);
                     timer.cancel();
+                }
                 // System.out.println(iCountdown);
 
             }
-        }, 1, delay);
+        }, 1000, delay);
 
     }
 
@@ -141,11 +146,13 @@ public class App {
     }
 
     public void setOrder(int size) {
+        System.out.println("array.size = " + Stat.queue.size() + " quantity = " + stat.getQuantity());
         Tile[][] arrayTable = mapSizeApp.get(size).returnTable();
         int quantity = stat.getQuantity();
         ArrayList<int[]> queue = Stat.queue;
+        // new table--------------------------------
         if (queue.size() > quantity) {
-            System.out.println("if");
+            System.out.println("new table");
             for (int iQueue = 0; iQueue < queue.size(); iQueue++) {
                 int[] queueItem = queue.get(iQueue);
                 Tile tile = arrayTable[queueItem[0]][queueItem[1]];
@@ -159,8 +166,8 @@ public class App {
             Tile tile = arrayTable[queueItem[0]][queueItem[1]];
             tile.setOrder(queue.size());
 
-        } else {
-            System.out.println("else");
+        } else {// curren table--------------------------------
+            System.out.println("curren table");
             // old-------------------------------------
             for (int iRandom = 1; iRandom < quantity; iRandom++) {
                 // stat.addQueue(randomZY(size));
@@ -174,6 +181,7 @@ public class App {
             Tile tile = arrayTable[queueItem[0]][queueItem[1]];
             tile.setOrder(queue.size());
         }
+        System.out.println("After array.size = " + Stat.queue.size() + " quantity = " + stat.getQuantity());
         for (int testI = 0; testI < queue.size(); testI++) {
             int[] queueItem = queue.get(testI);
             Tile tile = arrayTable[queueItem[0]][queueItem[1]];
@@ -181,6 +189,7 @@ public class App {
 
             System.out.println("order" + tile.getOrder());
         }
+        // setAbleBtn(mapSizeApp.get(size), false);
         preview(size, mapSizeApp.get(size));
         //
         // Table2_2 table2_2 = new Table2_2(frame);
@@ -189,7 +198,7 @@ public class App {
 
     public int[] randomZY(int size) {// random
         int[] xY = new int[2];
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < 2; i++) {
             xY[i] = (int) (Math.random() * (size));
         }
         return xY;

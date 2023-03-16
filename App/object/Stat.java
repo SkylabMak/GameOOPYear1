@@ -61,6 +61,10 @@ public class Stat {
 
     public void decreaseHeart() {
         heart--;
+        if (heart == 0) {
+            app.disableOldTable(size);
+            new GameOver(app.getFrame());
+        }
         System.out.println("heart = " + heart);
     }
 

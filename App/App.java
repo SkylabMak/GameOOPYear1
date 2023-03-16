@@ -62,18 +62,19 @@ public class App {
                 removeName(windows);
 
                 // JButton backButton = new JButton("Back");
-                // backButton.setBounds((frame.getWidth()/2) - 100, (frame.getHeight()/2), 400, 100);
+                // backButton.setBounds((frame.getWidth()/2) - 100, (frame.getHeight()/2), 400,
+                // 100);
                 // backButton.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
                 // mainPanel.add(backButton);
                 // frame.add(mainPanel);
-                // backButton.addActionListener(new ActionListener() { 
-                //     public void actionPerformed(ActionEvent e) { 
-                //       returnMainPanel();
-                //     }
-                //     private void returnMainPanel() {
-                //         mainPanel.setVisible(true);
-                //     } 
-                //   } );
+                // backButton.addActionListener(new ActionListener() {
+                // public void actionPerformed(ActionEvent e) {
+                // returnMainPanel();
+                // }
+                // private void returnMainPanel() {
+                // mainPanel.setVisible(true);
+                // }
+                // } );
 
                 mainPanel.setVisible(false);
                 mapSizeApp.put(2, new Table2_2(frame));
@@ -93,9 +94,10 @@ public class App {
         mainPanel.setLayout(null);
         Container c = frame.getContentPane();
 
-        btnStart.setBounds((frame.getWidth()/2) - margin, (frame.getHeight()/2), 400, 100);
-        test.setBounds((frame.getWidth()/2) - margin, (frame.getHeight()/2) + ((margin/2) + (margin/5)),400, 100);
-        windows.setBounds((frame.getWidth()/2) - (185), 100, 400, 500);
+        btnStart.setBounds((frame.getWidth() / 2) - margin, (frame.getHeight() / 2), 400, 100);
+        test.setBounds((frame.getWidth() / 2) - margin, (frame.getHeight() / 2) + ((margin / 2) + (margin / 5)), 400,
+                100);
+        windows.setBounds((frame.getWidth() / 2) - (185), 100, 400, 500);
 
         btnStart.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
         test.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
@@ -233,6 +235,10 @@ public class App {
             xY[i] = (int) (Math.random() * (size));
         }
         return xY;
+    }
+
+    public JFrame getFrame() {
+        return frame;
     }
 
     public void Showpreview() {

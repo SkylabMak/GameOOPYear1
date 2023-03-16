@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.FlowLayout;
 
 import java.awt.event.ActionListener;
+import java.sql.RowId;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -16,6 +17,7 @@ import javax.swing.Timer;
 import App.object.*;
 import App.object.FTable.*;
 import App.object.FTile.Tile;
+import App.object.FTile.Tile_Size1;
 
 public class App {
     JFrame frame = new JFrame("My First GUI");
@@ -57,11 +59,12 @@ public class App {
         test.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                preview(2);
+                int[][] a = {{0,1},{1,0},{0,0},{1,1}};
                 // mapSize.put(3, new Table3_3(frame));
                 // Table3_3 table3 = new Table3_3(frame);
                 // Table2_2 table2 = new Table2_2(frame);
                 mainPanel.setVisible(false);
+                preview(a);
 
             }
 
@@ -84,10 +87,34 @@ public class App {
 
     // }
 
-    public void preview(int size) {
-        mapSize.put(size, new Table2_2(frame));
-        Table2_2 preview = (Table2_2) mapSize.get(size);
-        preview.setVisbleTure();
+    public void preview(int[][] order) {
+        Table2_2 preview = new Table2_2(frame);
+        Tile [][] map = preview.getTile2_2();
+        for (int i = 0; i < order.length; i++) {
+            
+            map[order[i][0]][order[i][1]].ChangeColor();
+            
+        }
+        
+
+       
+       
+       
+       
+       
+        /*  HashMap<String, Integer> map = new HashMap<String, Integer>(); */
+       /*  map.put((null), null) */
+
+       /*  mapSize.put(size, new Table2_2(frame)); */
+       /*  Table2_2 preview = (Table2_2) mapSize.get(size); */
+       /*  preview.setVisbleTure(); */
+       /*  Tile [][] map = preview.getTile2_2(); */
+        
+
+        
+
+        
+    
         //preview.Changecolor2525();
 
     }

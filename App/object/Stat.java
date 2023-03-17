@@ -7,6 +7,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import App.App;
+import App.object.FTable.Table2_2;
+import App.object.FTable.Table3_3;
+import App.object.FTable.Table4_4;
+import App.object.FTable.TableMain;
 
 public class Stat {
     private static int level = 1;
@@ -51,19 +55,25 @@ public class Stat {
         app.mainPage();
     }
 
+    public void sTartgGameOvar() {
+        new GameOver(app.getFrame());
+        app.disableOldTable(size);
+    }
+
     public void reset() {
         level = 1;
         heart = 3;
         size = 2;
         quantity = 1;
         currentOrder = 1;
+        queue.removeAll(queue);
     }
 
     public void decreaseHeart() {
         heart--;
         if (heart == 0) {
             app.disableOldTable(size);
-            new GameOver(app.getFrame());
+            sTartgGameOvar();
         }
         System.out.println("heart = " + heart);
     }

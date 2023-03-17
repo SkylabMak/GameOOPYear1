@@ -9,6 +9,7 @@ import java.awt.Toolkit;
 import java.awt.Font;
 
 import java.awt.event.ActionListener;
+import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -27,14 +28,16 @@ public class App {
     public static int iCountdown = 0;
     JFrame frame = new JFrame("My First GUI");
     Stat stat = new Stat(this);
-    JPanel mainPanel = new JPanel();
     HashMap<Integer, TableMain> mapSizeApp = new HashMap<>();
+    public JLabel windows = new JLabel("WINDOWS");// name
 
     public App() {
         mainPage();
     }
 
     public void mainPage() {
+        // windows.setBounds((frame.getWidth() / 2) - (185), 100, 400, 500);
+        windows.setText("Windows");
         // ----------------------------------------------------------------
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // frame.setLocationRelativeTo(null);
@@ -46,9 +49,10 @@ public class App {
         int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
         frame.setLocation(x, y);
         frame.setResizable(false);// disable full windows
+        JPanel mainPanel = new JPanel();
         JButton btnStart = new JButton("Start");// button start
         JButton test = new JButton("Test");// button start
-        JLabel windows = new JLabel("WINDOWS");// name
+
         mainPanel.setBackground(new Color(51, 153, 230));
         btnStart.addActionListener(new ActionListener() {
             @Override
@@ -62,6 +66,32 @@ public class App {
             @Override
             public void actionPerformed(ActionEvent e) {
                 removeName(windows);
+
+                // JButton backButton = new JButton("Back");
+                // backButton.setBounds((frame.getWidth()/2) - 100, (frame.getHeight()/2), 400,
+                // 100);
+                // backButton.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
+                // mainPanel.add(backButton);
+                // frame.add(mainPanel);
+                // backButton.addActionListener(new ActionListener() {
+                // public void actionPerformed(ActionEvent e) {
+                // returnMainPanel();
+                // }
+                // private void returnMainPanel() {
+                // mainPanel.setVisible(true);
+                // }
+                // } );
+
+                // mainPanel.setVisible(false);
+                // mapSizeApp.put(2, new Table2_2(frame));
+                // mapSizeApp.get(2).setVisbleTure();
+                // stat.addQueue(new int[] { 0, 1 });
+                // Tile tile = (mapSizeApp.get(2).returnTable())[0][1];
+                // tile.setOrder(1);
+                // stat.addQueue(new int[] { 0, 0 });
+                // ((mapSizeApp.get(2).returnTable())[0][0]).setOrder(2);
+                // setOrder(2);
+                // preview(2, mapSizeApp.get(2));
             }
 
         });
@@ -97,16 +127,12 @@ public class App {
 
     public void start(JLabel windows) {// start
         removeName(windows);
-
+        mapSizeApp.clear();
         stat.reset();
         mapSizeApp.put(Integer.valueOf(2), new Table2_2(frame));
         mapSizeApp.put(Integer.valueOf(3), new Table3_3(frame));
         mapSizeApp.put(Integer.valueOf(4), new Table4_4(frame));
         play(2);
-    }
-    public void restart (JLabel windows) {
-        mainPanel.setVisible(true);
-        start(windows);
     }
 
     public void disableOldTable(int size) {

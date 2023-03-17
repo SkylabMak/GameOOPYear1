@@ -37,13 +37,17 @@ public class GameOver {
         f.add(gameOverPanel);
     }
 
+    public void restartInGO() {
+        System.out.println("reset game");
+        new Stat().restartGame();
+    }
+
     private class BtnRestart implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
             gameOverPanel.setVisible(false);
-            System.out.println("reset game");
-            new Stat().restartGame();
+            restartInGO();
             // SwingUtilities.updateComponentTreeUI(f);
 
         }

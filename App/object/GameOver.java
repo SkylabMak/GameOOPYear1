@@ -33,11 +33,11 @@ public class GameOver {
                 500);
         restart.setBounds((int) ((f.getWidth() / 2) - restart.getPreferredSize().getWidth()), 200, 100,
                 100);
-        restart.addActionListener(new AllButtonListener());
+        restart.addActionListener(new BtnRestart());
         f.add(gameOverPanel);
     }
 
-    private class AllButtonListener implements ActionListener {
+    private class BtnRestart implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {

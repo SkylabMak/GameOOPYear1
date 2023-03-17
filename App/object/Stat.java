@@ -7,10 +7,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import App.App;
-import App.object.FTable.Table2_2;
-import App.object.FTable.Table3_3;
-import App.object.FTable.Table4_4;
-import App.object.FTable.TableMain;
 
 public class Stat {
     private static int level = 1;

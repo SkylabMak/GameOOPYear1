@@ -9,7 +9,6 @@ import java.awt.Toolkit;
 import java.awt.Font;
 
 import java.awt.event.ActionListener;
-import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -64,32 +63,6 @@ public class App {
             @Override
             public void actionPerformed(ActionEvent e) {
                 removeName(windows);
-
-                // JButton backButton = new JButton("Back");
-                // backButton.setBounds((frame.getWidth()/2) - 100, (frame.getHeight()/2), 400,
-                // 100);
-                // backButton.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
-                // mainPanel.add(backButton);
-                // frame.add(mainPanel);
-                // backButton.addActionListener(new ActionListener() {
-                // public void actionPerformed(ActionEvent e) {
-                // returnMainPanel();
-                // }
-                // private void returnMainPanel() {
-                // mainPanel.setVisible(true);
-                // }
-                // } );
-
-                // mainPanel.setVisible(false);
-                // mapSizeApp.put(2, new Table2_2(frame));
-                // mapSizeApp.get(2).setVisbleTure();
-                // stat.addQueue(new int[] { 0, 1 });
-                // Tile tile = (mapSizeApp.get(2).returnTable())[0][1];
-                // tile.setOrder(1);
-                // stat.addQueue(new int[] { 0, 0 });
-                // ((mapSizeApp.get(2).returnTable())[0][0]).setOrder(2);
-                // setOrder(2);
-                // preview(2, mapSizeApp.get(2));
             }
 
         });

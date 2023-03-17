@@ -128,7 +128,7 @@ public class Table4_4 extends TableMain {
         }
 
     public Tile[][] returnTable() {
-        return tile;
+        return tile4_4;
     }
 
         @Override

@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import App.App;
 import App.object.FTable.Table2_2;
 import App.object.FTable.Table3_3;
+import App.object.FTable.Table4_4;
 import App.object.FTable.TableMain;
 
 public class Stat {
@@ -19,7 +20,7 @@ public class Stat {
     public static boolean status = true;
     private static int currentOrder = 1;
     public static ArrayList<int[]> queue = new ArrayList<>();
-    public static HashMap<Integer, TableMain> mapSize = new HashMap<>();
+    // public static HashMap<Integer, TableMain> mapSize = new HashMap<>();
     private static App app;
 
     public Stat() {
@@ -31,33 +32,50 @@ public class Stat {
         System.out.println(app);
     }
 
-    public void setMapSize(JFrame frame) {
-        mapSize.put(Integer.valueOf(2), new Table2_2(frame));
-        mapSize.put(Integer.valueOf(3), new Table3_3(frame));
-        // mapSize.put(Integer.valueOf(4), new Table2_2(frame));
-    }
+    // public void setMapSize(JFrame frame) {
+    // mapSize.put(Integer.valueOf(2), new Table2_2(frame));
+    // mapSize.put(Integer.valueOf(3), new Table3_3(frame));
+    // mapSize.put(Integer.valueOf(4), new Table4_4(frame));
+    // System.out.println("setmapsize");
+    // // mapSize.put(Integer.valueOf(4), new Table2_2(frame));
+    // }
 
-    public HashMap<Integer, TableMain> getMapSize(JFrame frame) {
-        setMapSize(frame);
-        // new Table3_3(frame).tile[0][0] = new Tile(new JPanel());
-        return mapSize;
-    }
+    // public HashMap<Integer, TableMain> getMapSize(JFrame frame) {
+    // setMapSize(frame);
+    // // new Table3_3(frame).tile[0][0] = new Tile(new JPanel());
+    // return mapSize;
+    // }
 
     public void UpOrder() {
         currentOrder++;
-        System.out.println("upOrder");
+        // System.out.println("upOrder");
+    }
+
+    public void restartGame() {
+        app.mainPage();
+    }
+
+    public void sTartgGameOvar() {
+        new GameOver(app.getFrame());
+        app.disableOldTable(size);
     }
 
     public void reset() {
-        level = 0;
+        level = 1;
         heart = 3;
         size = 2;
         quantity = 1;
         currentOrder = 1;
+        queue.removeAll(queue);
     }
 
     public void decreaseHeart() {
         heart--;
+        if (heart == 0) {
+            app.disableOldTable(size);
+            sTartgGameOvar();
+        }
+        System.out.println("heart = " + heart);
     }
 
     public void addQueue(int[] pointQueue) {
@@ -68,26 +86,30 @@ public class Stat {
         size = newSize;
     }
 
-    public void setQuantity(int newQuantity) {
-        quantity = newQuantity;
-    }
-
     public void upLevel() {
         currentOrder = 1;
-        System.out.println("uplevel");
         quantity++;
         level++;
-        if (level < 6) {
+        System.out.println("--------------------level = " + level + "--------------------------\n");
+        if (level < 3) {
             app.play(size);
-        } else if (level == 6) {
+            return;
+        } else if (level == 3) {
+            System.out.println("next table to 3");
+            app.disableOldTable(size);
             size++;// 3
-            quantity = 1;// reset
+            quantity = 1;
             app.play(size);
-        } else if (level == 11) {
+            return;
+        } else if (level == 5) {
+            System.out.println("next table to 4");
+            app.disableOldTable(size);
             size++;// 4
-            quantity = 1;// reset
+            quantity = 1;
             app.play(size);
+            return;
         }
+        app.play(size);
     }
 
     public int getCurrentOrder() {

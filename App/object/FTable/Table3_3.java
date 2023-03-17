@@ -3,6 +3,7 @@ package App.object.FTable;
 import java.awt.*;
 import javax.swing.*;
 
+import App.object.BackBtn;
 import App.object.FTile.Tile;
 import App.object.FTile.Tile_Size1;
 
@@ -27,20 +28,19 @@ public class Table3_3 extends TableMain {
         JPanel panel1 = new JPanel();
 
         public Table3_3(JFrame f) {
-                JPanel panel1 = new JPanel();
                 panel1.setLayout(null);
 
                 // panel1.setBounds(0, 0, 400, 400);
-                panel1.setSize((int) f.getSize().getWidth(), (int) f.getSize().getHeight());
+                // panel1.setSize((int) f.getSize().getWidth(), (int) f.getSize().getHeight());
                 System.out.println(f.getSize().getWidth() + " " + f.getPreferredSize().getHeight());
-                // panel1.setBounds(0, 0, 800, 800);
+                panel1.setBounds(0, 100, (int) f.getSize().getWidth(), (int) f.getSize().getHeight());
                 // panel1.setPreferredSize(new Dimension(600, 600));
                 panel1.setBackground(new Color(51, 153, 230));
 
                 System.out.println(tile1);
 
-                int centerX = (int) (panel1.getPreferredSize().getWidth()) / 2;// this is center in x axis
-                int centerY = (int) (panel1.getPreferredSize().getHeight()) / 2;// this is center in y axis
+                int centerX = (int) (f.getPreferredSize().getWidth()) / 2;// this is center in x axis
+                int centerY = (int) (f.getPreferredSize().getHeight()) / 2;// this is center in y axis
                 Dimension size = (tile1.returnBTn()).getPreferredSize();
                 System.out.println(size.height + " " + size.width);
                 (tile1.returnBTn()).setBounds((int) (centerX - size.getWidth() - margin1),
@@ -73,7 +73,7 @@ public class Table3_3 extends TableMain {
                 panel1.add(tile8.returnBTn());
                 panel1.add(tile9.returnBTn());
 
-                panel1.setVisible(true);
+                panel1.setVisible(false);
                 f.add(panel1);
         }
 
@@ -91,6 +91,11 @@ public class Table3_3 extends TableMain {
 
         @Override
         public void setVisbleTure() {
+                panel1.setVisible(true);
+        }
+
+        public void setVisbleFlase() {
                 panel1.setVisible(false);
         }
+
 }

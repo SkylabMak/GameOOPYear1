@@ -17,7 +17,7 @@ public class BackBtn {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                stat.reset();
+                System.out.println("nha hee");
             }
         });
     }

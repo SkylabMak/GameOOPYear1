@@ -20,7 +20,7 @@ public class Stat {
     public static boolean status = true;
     private static int currentOrder = 1;
     public static ArrayList<int[]> queue = new ArrayList<>();
-    public static HashMap<Integer, TableMain> mapSize = new HashMap<>();
+    // public static HashMap<Integer, TableMain> mapSize = new HashMap<>();
     private static App app;
 
     public Stat() {
@@ -32,23 +32,27 @@ public class Stat {
         System.out.println(app);
     }
 
-    public void setMapSize(JFrame frame) {
-        mapSize.put(Integer.valueOf(2), new Table2_2(frame));
-        mapSize.put(Integer.valueOf(3), new Table3_3(frame));
-        mapSize.put(Integer.valueOf(4), new Table4_4(frame));
-        System.out.println("setmapsize");
-        // mapSize.put(Integer.valueOf(4), new Table2_2(frame));
-    }
+    // public void setMapSize(JFrame frame) {
+    // mapSize.put(Integer.valueOf(2), new Table2_2(frame));
+    // mapSize.put(Integer.valueOf(3), new Table3_3(frame));
+    // mapSize.put(Integer.valueOf(4), new Table4_4(frame));
+    // System.out.println("setmapsize");
+    // // mapSize.put(Integer.valueOf(4), new Table2_2(frame));
+    // }
 
-    public HashMap<Integer, TableMain> getMapSize(JFrame frame) {
-        setMapSize(frame);
-        // new Table3_3(frame).tile[0][0] = new Tile(new JPanel());
-        return mapSize;
-    }
+    // public HashMap<Integer, TableMain> getMapSize(JFrame frame) {
+    // setMapSize(frame);
+    // // new Table3_3(frame).tile[0][0] = new Tile(new JPanel());
+    // return mapSize;
+    // }
 
     public void UpOrder() {
         currentOrder++;
         // System.out.println("upOrder");
+    }
+
+    public void restartGame() {
+        app.mainPage();
     }
 
     public void reset() {
@@ -57,8 +61,6 @@ public class Stat {
         size = 2;
         quantity = 1;
         currentOrder = 1;
-        app.disableOldTable(size);
-        app.restart();
     }
 
     public void decreaseHeart() {

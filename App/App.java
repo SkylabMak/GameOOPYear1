@@ -152,6 +152,7 @@ public class App {
 
     public void play(int size) {// play
         // banner.setVisible(true);
+        banner.changeLevel(stat.getLevel());
         mapSizeApp.get(size).setVisbleTure();
         setOrder(size);
     }

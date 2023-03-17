@@ -139,7 +139,6 @@ public class App {
         banner.setVisible(true);
         // banner.setVisible(true);
         removeName(windows);
-        LifeCouter hp = new LifeCouter(windows);
         mapSizeApp.clear();
         stat.reset();
         mapSizeApp.put(Integer.valueOf(2), new Table2_2(frame));

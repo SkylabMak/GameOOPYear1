@@ -8,7 +8,6 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.*;
 
-<<<<<<< HEAD
 import App.App;
 
 // public class BackBtn {
@@ -26,10 +25,8 @@ import App.App;
 //             }
 //         });
 
-public class BackBtn extends JButton implements ActionListener {
-=======
+
 public class BackBtn extends JButton {
->>>>>>> 82780243e37c14e312118e87691d9fa3b4b42613
     Stat stat;
 
     public BackBtn() {

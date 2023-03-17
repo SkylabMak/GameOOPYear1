@@ -6,11 +6,16 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import java.awt.Color;
+import java.awt.Container;
+
 public class Banner extends JPanel {
     JLabel level = new JLabel();
 
     public Banner(JFrame frame) {
+        // setBackground(Color.MAGENTA);
         setLayout(null);
+        // setBorderPainted(false);
         setBounds(0, 0, (int) frame.getSize().getWidth(), 50);
         BackBtn backButton = new BackBtn();
 

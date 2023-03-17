@@ -26,18 +26,24 @@ public class App {
     // https://www.roseindia.net/java/example/java/swing/jlayered-overlap-panel.shtml
     JLayeredPane layeredPane;
     public static int iCountdown = 0;
-    JFrame frame = new JFrame("My First GUI");
+    JFrame frame = new JFrame("WINDOWS"); // title
     Container c = frame.getContentPane();
     Stat stat = new Stat(this);
     HashMap<Integer, TableMain> mapSizeApp = new HashMap<>();
     public JLabel windows = new JLabel("WINDOWS");// name
+    Banner banner;
 
     public App() {
 
         mainPage();
     }
 
+    public void disableBanner() {
+        banner.setVisible(false);
+    }
+
     public void mainPage() {
+        // banner.setVisible(true);
         // windows.setBounds((frame.getWidth() / 2) - (185), 100, 400, 500);
         windows.setText("Windows");
         // ----------------------------------------------------------------
@@ -118,7 +124,6 @@ public class App {
         mainPanel.add(test);
         c.add(windows);
         frame.add(mainPanel);
-
         // frame.getContentPane().add(test);
         frame.setVisible(true);
     }
@@ -129,7 +134,9 @@ public class App {
     }
 
     public void start(JLabel windows) {// start
-        Banner banner = new Banner(frame);
+        banner = new Banner(frame);
+        banner.setVisible(true);
+        // banner.setVisible(true);
         removeName(windows);
         mapSizeApp.clear();
         stat.reset();
@@ -144,6 +151,7 @@ public class App {
     }
 
     public void play(int size) {// play
+        // banner.setVisible(true);
         mapSizeApp.get(size).setVisbleTure();
         setOrder(size);
     }

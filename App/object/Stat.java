@@ -32,19 +32,9 @@ public class Stat {
         System.out.println(app);
     }
 
-    // public void setMapSize(JFrame frame) {
-    // mapSize.put(Integer.valueOf(2), new Table2_2(frame));
-    // mapSize.put(Integer.valueOf(3), new Table3_3(frame));
-    // mapSize.put(Integer.valueOf(4), new Table4_4(frame));
-    // System.out.println("setmapsize");
-    // // mapSize.put(Integer.valueOf(4), new Table2_2(frame));
-    // }
-
-    // public HashMap<Integer, TableMain> getMapSize(JFrame frame) {
-    // setMapSize(frame);
-    // // new Table3_3(frame).tile[0][0] = new Tile(new JPanel());
-    // return mapSize;
-    // }
+    public App getApp() {
+        return app;
+    }
 
     public void UpOrder() {
         currentOrder++;
@@ -52,6 +42,7 @@ public class Stat {
     }
 
     public void restartGame() {
+        app.disableBanner();
         app.mainPage();
     }
 
@@ -74,6 +65,7 @@ public class Stat {
         if (heart == 0) {
             app.disableOldTable(size);
             sTartgGameOvar();
+            app.disableBanner();
         }
         System.out.println("heart = " + heart);
     }

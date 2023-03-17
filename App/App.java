@@ -38,7 +38,7 @@ public class App {
         mainPage();
     }
 
-    public void reStartApp() {
+    public void disableBanner() {
         banner.setVisible(false);
     }
 
@@ -68,7 +68,6 @@ public class App {
             public void actionPerformed(ActionEvent e) {
                 mainPanel.setVisible(false);
                 start(windows);
-
             }
 
         });
@@ -114,7 +113,7 @@ public class App {
         btnStart.setBounds((frame.getWidth() / 2) - margin, (frame.getHeight() / 2), 400, 100);
         test.setBounds((frame.getWidth() / 2) - margin, (frame.getHeight() / 2) + ((margin / 2) + (margin / 5)), 400,
                 100);
-        windows.setBounds((frame.getWidth() / 2) - (200), 80, 400, 500);
+        windows.setBounds((frame.getWidth() / 2) - 135, 80, 400, 500);
 
         btnStart.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
         test.setFont(new Font("Comic Sans MS", Font.BOLD, 32));

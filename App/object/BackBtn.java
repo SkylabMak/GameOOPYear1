@@ -8,16 +8,33 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.*;
 
+import App.App;
+
+// public class BackBtn {
+//     public BackBtn(JPanel panel1) {
+//         Stat stat = new Stat();
+//         JButton backButton = new JButton("Back");// go back
+//         backButton.setBounds(15, 15, 90, 40);
+//         backButton.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
+//         panel1.add(backButton);
+
+//         backButton.addActionListener(new ActionListener() {
+//             @Override
+//             public void actionPerformed(ActionEvent e) {
+//                 System.out.println("nha hee");
+//             }
+//         });
+
 public class BackBtn extends JButton {
     Stat stat;
 
     public BackBtn() {
-        setText("Back02");
+        setText("Back");
         stat = new Stat();
-        setBounds(15, 15, 150, 40);
+        setBounds(15, 5, 150, 40);
         setFont(new Font("Comic Sans MS", Font.BOLD, 20));
         addMouseListener(new mouseEvent());
-        setFocusPainted(false);
+
     }
 
     public class mouseEvent extends MouseAdapter {
@@ -26,6 +43,7 @@ public class BackBtn extends JButton {
         public void mouseClicked(MouseEvent e) {
             System.out.println("nha hee");
             stat.sTartgGameOvar();
+            stat.getApp().disableBanner();
         }
 
     }

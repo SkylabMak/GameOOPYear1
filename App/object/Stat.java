@@ -55,6 +55,11 @@ public class Stat {
         app.mainPage();
     }
 
+    public void sTartgGameOvar() {
+        new GameOver(app.getFrame());
+        app.disableOldTable(size);
+    }
+
     public void reset() {
         level = 1;
         heart = 3;
@@ -68,7 +73,7 @@ public class Stat {
         heart--;
         if (heart == 0) {
             app.disableOldTable(size);
-            new GameOver(app.getFrame());
+            sTartgGameOvar();
         }
         System.out.println("heart = " + heart);
     }

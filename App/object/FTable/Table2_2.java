@@ -5,6 +5,7 @@ import java.nio.ByteOrder;
 
 import javax.swing.*;
 
+import App.object.BackBtn;
 import App.object.FTile.Tile;
 import App.object.FTile.Tile_Size1;
 
@@ -48,6 +49,8 @@ public class Table2_2 extends TableMain {// extends JFrame
                 size.width, size.height);
         (tile4.returnBTn()).setBounds((int) (centerX + margin), (int) (centerY + margin),
                 size.width, size.height);
+
+        BackBtn backButton = new BackBtn(panel1);
 
         panel1.add(tile1.returnBTn());
         panel1.add(tile2.returnBTn());

@@ -36,6 +36,8 @@ public class App {
     }
 
     public void mainPage() {
+        // windows.setBounds((frame.getWidth() / 2) - (185), 100, 400, 500);
+        windows.setText("Windows");
         // ----------------------------------------------------------------
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // frame.setLocationRelativeTo(null);

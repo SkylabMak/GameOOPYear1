@@ -3,6 +3,7 @@ package App.object.FTable;
 import java.awt.*;
 import javax.swing.*;
 
+import App.object.BackBtn;
 import App.object.FTile.Tile;
 import App.object.FTile.Tile_Size1;
 
@@ -62,10 +63,7 @@ public class Table3_3 extends TableMain {
                 (tile9.returnBTn()).setBounds((int) (centerX + margin1), (int) (centerY + margin1),
                                 size.width, size.height);
                 
-                JButton backButton = new JButton("Back");// go back
-                backButton.setBounds(15, 15, 90, 40);
-                backButton.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
-                panel1.add(backButton);
+                BackBtn backButton = new BackBtn(panel1);
 
                 panel1.add(tile1.returnBTn());
                 panel1.add(tile2.returnBTn());

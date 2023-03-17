@@ -55,7 +55,6 @@ public class App {
             public void actionPerformed(ActionEvent e) {
                 mainPanel.setVisible(false);
                 start(windows);
-
             }
 
         });

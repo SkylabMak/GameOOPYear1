@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import App.App;
+
 public class BackBtn {
     public BackBtn(JPanel panel1) {
         Stat stat = new Stat();
@@ -17,7 +19,9 @@ public class BackBtn {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("nha hee");
+                System.out.println("hee hee pussy");
+                App app = new App();
+                app.mainPage();
             }
         });
     }

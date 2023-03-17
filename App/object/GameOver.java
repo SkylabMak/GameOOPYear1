@@ -34,6 +34,7 @@ public class GameOver {
         restart.setBounds((int) ((f.getWidth() / 2) - restart.getPreferredSize().getWidth()), 200, 100,
                 100);
         restart.addActionListener(new BtnRestart());
+        gameOver.setFocusable(false);
         f.add(gameOverPanel);
     }
 

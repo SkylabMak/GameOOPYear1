@@ -14,10 +14,10 @@ public class BackBtn extends JButton {
     public BackBtn() {
         setText("Back02");
         stat = new Stat();
-        setBounds(15, 15, 90, 40);
+        setBounds(15, 15, 150, 40);
         setFont(new Font("Comic Sans MS", Font.BOLD, 20));
         addMouseListener(new mouseEvent());
-
+        setFocusPainted(false);
     }
 
     public class mouseEvent extends MouseAdapter {
@@ -29,23 +29,5 @@ public class BackBtn extends JButton {
         }
 
     }
-    // @Override
-    // public void actionPerformed(ActionEvent e) {
-    // System.out.println("nha hee");
-    // stat.sTartgGameOvar();
-    // throw new UnsupportedOperationException("Unimplemented method
-    // 'actionPerformed'");
-    // }
 
-    // private class BtnListener implements ActionListener {
-
-    // @Override
-    // public void actionPerformed(ActionEvent e) {
-    // System.out.println("nha hee");
-    // stat.sTartgGameOvar();
-    // throw new UnsupportedOperationException("Unimplemented method
-    // 'actionPerformed'");
-    // }
-
-    // }
 }

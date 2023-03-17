@@ -52,6 +52,7 @@ public class Stat {
     }
 
     public void restartGame() {
+        app.reStartApp();
         app.mainPage();
     }
 

@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import App.object.FHart.LifeCouter;
+
 import java.awt.Color;
 import java.awt.Container;
 
@@ -22,6 +24,8 @@ public class Banner extends JPanel {
         level.setBounds((int) frame.getSize().getWidth() / 2 - 50, 5, 150, 40);
         level.setText("Level ");
         level.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
+
+        LifeCouter lifeCouter = new LifeCouter(this);
 
         add(backButton);
         add(level);

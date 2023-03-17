@@ -199,13 +199,14 @@ public class App {
     }
 
     public void setOrder(int size) {
-        System.out.println("array.size = " + Stat.queue.size() + " quantity = " + stat.getQuantity());
+        System.out.println("array.size = " + Stat.queue.size() + " quantity = " +
+                stat.getQuantity());
         Tile[][] arrayTable = mapSizeApp.get(size).returnTable();
         int quantity = stat.getQuantity();
         ArrayList<int[]> queue = Stat.queue;
         // new table--------------------------------
         if (queue.size() > quantity) {
-            System.out.println("new table");
+            // System.out.println("new table");
             for (int iQueue = 0; iQueue < queue.size(); iQueue++) {
                 int[] queueItem = queue.get(iQueue);
                 Tile tile = arrayTable[queueItem[0]][queueItem[1]];
@@ -220,7 +221,7 @@ public class App {
             tile.setOrder(queue.size());
 
         } else {// curren table--------------------------------
-            System.out.println("curren table");
+            // System.out.println("curren table");
             // old-------------------------------------
             for (int iRandom = 1; iRandom < quantity; iRandom++) {
                 // stat.addQueue(randomZY(size));
@@ -234,13 +235,15 @@ public class App {
             Tile tile = arrayTable[queueItem[0]][queueItem[1]];
             tile.setOrder(queue.size());
         }
-        System.out.println("After array.size = " + Stat.queue.size() + " quantity = " + stat.getQuantity());
+        // System.out.println("After array.size = " + Stat.queue.size() + " quantity = "
+        // + stat.getQuantity());
         for (int testI = 0; testI < queue.size(); testI++) {
             int[] queueItem = queue.get(testI);
             Tile tile = arrayTable[queueItem[0]][queueItem[1]];
-            System.out.println("position I = " + testI + " " + Arrays.toString(queue.get(testI)));
+            // System.out.println("position I = " + testI + " " +
+            // Arrays.toString(queue.get(testI)));
 
-            System.out.println("order" + tile.getOrder());
+            // System.out.println("order" + tile.getOrder());
         }
         // setAbleBtn(mapSizeApp.get(size), false);
         preview(size, mapSizeApp.get(size));

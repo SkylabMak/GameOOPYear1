@@ -35,12 +35,10 @@ public class Table2_2 extends TableMain {// extends JFrame
         // panel1.setPreferredSize(new Dimension(600, 600));
         panel1.setBackground(new Color(51, 153, 230));
 
-        System.out.println(tile1);
-
         int centerX = (int) (panel1.getPreferredSize().getWidth()) / 2;// this is center in x axis
         int centerY = (int) (panel1.getPreferredSize().getHeight()) / 2;// this is center in y axis
         Dimension size = (tile1.returnBTn()).getPreferredSize();
-        System.out.println(size.height + " " + size.width);
+        // System.out.println(size.height + " " + size.width);
         (tile1.returnBTn()).setBounds((int) (centerX - size.getWidth() - margin),
                 (int) (centerY - size.getHeight() - margin - putDown),
                 size.width, size.height);

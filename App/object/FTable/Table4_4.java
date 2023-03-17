@@ -42,17 +42,16 @@ public class Table4_4 extends TableMain {
 
                 panel1.setBounds(0, 50, (int) f.getSize().getWidth(), (int) f.getSize().getHeight());
                 // panel1.setSize((int) f.getSize().getWidth(), (int) f.getSize().getHeight());
-                System.out.println(f.getSize().getWidth() + " " + f.getPreferredSize().getHeight());
+                // System.out.println(f.getSize().getWidth() + " " +
+                // f.getPreferredSize().getHeight());
                 // panel1.setBounds(0, 0, 800, 800);
                 // panel1.setPreferredSize(new Dimension(600, 600));
                 panel1.setBackground(new Color(51, 153, 230));
 
-                System.out.println(tile1);
-
                 int centerX = (int) (panel1.getPreferredSize().getWidth()) / 2;// this is center in x axis
                 int centerY = (int) (panel1.getPreferredSize().getHeight()) / 2;// this is center in y axis
                 Dimension size = (tile1.returnBTn()).getPreferredSize();
-                System.out.println(size.height + " " + size.width);
+                // System.out.println(size.height + " " + size.width);
                 (tile1.returnBTn()).setBounds((int) (centerX - (2 * size.getWidth()) - (2 * margin + margin1)),
                                 (int) (centerY - (2 * size.getHeight()) - (2 * margin + margin1) - putDown),
                                 size.width, size.height);
@@ -71,7 +70,8 @@ public class Table4_4 extends TableMain {
                 (tile6.returnBTn()).setBounds((int) (centerX - size.getWidth() - margin),
                                 (int) (centerY - size.getWidth() - margin - putDown),
                                 size.width, size.height);
-                (tile7.returnBTn()).setBounds((int) (centerX + margin1), (int) (centerY - size.getHeight() - margin - putDown),
+                (tile7.returnBTn()).setBounds((int) (centerX + margin1),
+                                (int) (centerY - size.getHeight() - margin - putDown),
                                 size.width, size.height);
                 (tile8.returnBTn()).setBounds((int) (centerX + size.getWidth() + (2 * margin)),
                                 (int) (centerY - size.getHeight() - margin - putDown),
@@ -79,7 +79,8 @@ public class Table4_4 extends TableMain {
                 (tile9.returnBTn()).setBounds((int) (centerX - (2 * size.getWidth()) - (2 * margin + margin1)),
                                 (int) (centerY + margin1 - putDown),
                                 size.width, size.height);
-                (tile10.returnBTn()).setBounds((int) (centerX - size.getWidth() - margin), (int) (centerY + margin1 - putDown),
+                (tile10.returnBTn()).setBounds((int) (centerX - size.getWidth() - margin),
+                                (int) (centerY + margin1 - putDown),
                                 size.width, size.height);
                 (tile11.returnBTn()).setBounds((int) (centerX + margin1), (int) (centerY + margin1 - putDown),
                                 size.width, size.height);

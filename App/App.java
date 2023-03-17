@@ -27,11 +27,13 @@ public class App {
     JLayeredPane layeredPane;
     public static int iCountdown = 0;
     JFrame frame = new JFrame("My First GUI");
+    Container c = frame.getContentPane();
     Stat stat = new Stat(this);
     HashMap<Integer, TableMain> mapSizeApp = new HashMap<>();
     public JLabel windows = new JLabel("WINDOWS");// name
 
     public App() {
+
         mainPage();
     }
 
@@ -44,6 +46,7 @@ public class App {
         // frame.setBounds(0, 0, 1000, 1000);
         // frame.setLayout(null);
         frame.setSize(800, 800);
+        frame.setBackground(Color.WHITE);
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
         int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
@@ -105,7 +108,7 @@ public class App {
         btnStart.setBounds((frame.getWidth() / 2) - margin, (frame.getHeight() / 2), 400, 100);
         test.setBounds((frame.getWidth() / 2) - margin, (frame.getHeight() / 2) + ((margin / 2) + (margin / 5)), 400,
                 100);
-        windows.setBounds((frame.getWidth() / 2) - (185), 100, 400, 500);
+        windows.setBounds((frame.getWidth() / 2) - (200), 80, 400, 500);
 
         btnStart.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
         test.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
@@ -127,6 +130,7 @@ public class App {
     }
 
     public void start(JLabel windows) {// start
+        Banner banner = new Banner(frame);
         removeName(windows);
         mapSizeApp.clear();
         stat.reset();

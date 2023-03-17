@@ -31,16 +31,16 @@ public class Table3_3 extends TableMain {
                 panel1.setLayout(null);
 
                 // panel1.setBounds(0, 0, 400, 400);
-                panel1.setSize((int) f.getSize().getWidth(), (int) f.getSize().getHeight());
+                // panel1.setSize((int) f.getSize().getWidth(), (int) f.getSize().getHeight());
                 System.out.println(f.getSize().getWidth() + " " + f.getPreferredSize().getHeight());
-                // panel1.setBounds(0, 0, 800, 800);
+                panel1.setBounds(0, 100, (int) f.getSize().getWidth(), (int) f.getSize().getHeight());
                 // panel1.setPreferredSize(new Dimension(600, 600));
                 panel1.setBackground(new Color(51, 153, 230));
 
                 System.out.println(tile1);
 
-                int centerX = (int) (panel1.getPreferredSize().getWidth()) / 2;// this is center in x axis
-                int centerY = (int) (panel1.getPreferredSize().getHeight()) / 2;// this is center in y axis
+                int centerX = (int) (f.getPreferredSize().getWidth()) / 2;// this is center in x axis
+                int centerY = (int) (f.getPreferredSize().getHeight()) / 2;// this is center in y axis
                 Dimension size = (tile1.returnBTn()).getPreferredSize();
                 System.out.println(size.height + " " + size.width);
                 (tile1.returnBTn()).setBounds((int) (centerX - size.getWidth() - margin1),
@@ -62,8 +62,6 @@ public class Table3_3 extends TableMain {
                                 size.width, size.height);
                 (tile9.returnBTn()).setBounds((int) (centerX + margin1), (int) (centerY + margin1),
                                 size.width, size.height);
-                
-                BackBtn backButton = new BackBtn(panel1);
 
                 panel1.add(tile1.returnBTn());
                 panel1.add(tile2.returnBTn());

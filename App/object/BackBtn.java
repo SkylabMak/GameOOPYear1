@@ -19,14 +19,7 @@ public class BackBtn {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
-                System.out.println("hee hee pussy");
-                App app = new App();
-                app.mainPage();
-=======
-                stat.sTartgGameOvar();
                 System.out.println("nha hee");
->>>>>>> 57ac481ece4d17cc27ab6916f9c9e53744b1a800
             }
         });
     }

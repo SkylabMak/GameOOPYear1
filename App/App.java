@@ -21,6 +21,7 @@ import java.util.TimerTask;
 import App.object.*;
 import App.object.FTable.*;
 import App.object.FTile.Tile;
+import App.object.Heart.LifeCouter;
 
 public class App {
     // https://www.roseindia.net/java/example/java/swing/jlayered-overlap-panel.shtml
@@ -132,11 +133,13 @@ public class App {
     public void start(JLabel windows) {// start
         Banner banner = new Banner(frame);
         removeName(windows);
+        LifeCouter hp = new LifeCouter(windows);
         mapSizeApp.clear();
         stat.reset();
         mapSizeApp.put(Integer.valueOf(2), new Table2_2(frame));
         mapSizeApp.put(Integer.valueOf(3), new Table3_3(frame));
         mapSizeApp.put(Integer.valueOf(4), new Table4_4(frame));
+
         play(2);
     }
 

@@ -6,6 +6,7 @@ import javax.swing.DefaultButtonModel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import App.object.Stat;
@@ -41,7 +42,7 @@ public class LifeCouter  {
     }
     //-----------------------import image----------------------------------
     Dimension sizeInHeart1 = heart1.getPreferredSize();
-    heart1.setBounds(xRight, yTop, yTop, xRight);
+    //heart1.setBounds(xRight, yTop, yTop, xRight);
     heart2.setBounds(xRight, yTop, yTop, xRight);
     heart3.setBounds(xRight, yTop, yTop, xRight);
     jPanel.add(heart1); 
@@ -80,6 +81,9 @@ public class LifeCouter  {
 /*     panel1.add(heart2.getHeart2()); */
 /*     panel1.add(heart3.getHeart3()); */
 /* // ------------------------------------ */
+    }
+
+    public LifeCouter(JLabel windows) {
     }
 
     public JButton getHeart1() {

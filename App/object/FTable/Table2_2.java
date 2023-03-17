@@ -19,6 +19,7 @@ public class Table2_2 extends TableMain {// extends JFrame
     Tile_Size1 tile4 = new Tile_Size1(new JPanel());
 
     int margin = 10;
+    int putDown = 50;
 
     private Tile[][] tile2_2 = { { tile1, tile2 }, { tile3, tile4 } };
 
@@ -28,9 +29,9 @@ public class Table2_2 extends TableMain {// extends JFrame
         panel1.setLayout(null);
 
         // panel1.setBounds(0, 0, 400, 400);
-        panel1.setSize((int) f.getSize().getWidth(), (int) f.getSize().getHeight());
-        System.out.println(f.getSize().getWidth() + " " + f.getPreferredSize().getHeight());
-        // panel1.setBounds(0, 0, 800, 800);
+        // panel1.setSize((int) f.getSize().getWidth(), (int) f.getSize().getHeight());
+        System.out.println("fram Size : " + f.getSize().getWidth() + " " + f.getPreferredSize().getHeight());
+        panel1.setBounds(0, 50, (int) f.getSize().getWidth(), (int) f.getSize().getHeight());
         // panel1.setPreferredSize(new Dimension(600, 600));
         panel1.setBackground(new Color(51, 153, 230));
 
@@ -41,16 +42,14 @@ public class Table2_2 extends TableMain {// extends JFrame
         Dimension size = (tile1.returnBTn()).getPreferredSize();
         System.out.println(size.height + " " + size.width);
         (tile1.returnBTn()).setBounds((int) (centerX - size.getWidth() - margin),
-                (int) (centerY - size.getHeight() - margin),
+                (int) (centerY - size.getHeight() - margin - putDown),
                 size.width, size.height);
-        (tile2.returnBTn()).setBounds((int) (centerX + margin), (int) (centerY - size.getHeight() - margin),
+        (tile2.returnBTn()).setBounds((int) (centerX + margin), (int) (centerY - size.getHeight() - margin - putDown),
                 size.width, size.height);
-        (tile3.returnBTn()).setBounds((int) (centerX - size.getWidth() - margin), (int) (centerY + margin),
+        (tile3.returnBTn()).setBounds((int) (centerX - size.getWidth() - margin), (int) (centerY + margin - putDown),
                 size.width, size.height);
-        (tile4.returnBTn()).setBounds((int) (centerX + margin), (int) (centerY + margin),
+        (tile4.returnBTn()).setBounds((int) (centerX + margin), (int) (centerY + margin - putDown),
                 size.width, size.height);
-
-        BackBtn backButton = new BackBtn(panel1);
 
         panel1.add(tile1.returnBTn());
         panel1.add(tile2.returnBTn());

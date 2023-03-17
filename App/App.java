@@ -32,13 +32,19 @@ public class App {
     Stat stat = new Stat(this);
     HashMap<Integer, TableMain> mapSizeApp = new HashMap<>();
     public JLabel windows = new JLabel("WINDOWS");// name
+    Banner banner;
 
     public App() {
 
         mainPage();
     }
 
+    public void disableBanner() {
+        banner.setVisible(false);
+    }
+
     public void mainPage() {
+        // banner.setVisible(true);
         // windows.setBounds((frame.getWidth() / 2) - (185), 100, 400, 500);
         windows.setText("Windows");
         // ----------------------------------------------------------------
@@ -63,7 +69,6 @@ public class App {
             public void actionPerformed(ActionEvent e) {
                 mainPanel.setVisible(false);
                 start(windows);
-
             }
 
         });
@@ -109,7 +114,7 @@ public class App {
         btnStart.setBounds((frame.getWidth() / 2) - margin, (frame.getHeight() / 2), 400, 100);
         test.setBounds((frame.getWidth() / 2) - margin, (frame.getHeight() / 2) + ((margin / 2) + (margin / 5)), 400,
                 100);
-        windows.setBounds((frame.getWidth() / 2) - (200), 80, 400, 500);
+        windows.setBounds((frame.getWidth() / 2) - 135, 80, 400, 500);
 
         btnStart.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
         test.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
@@ -120,7 +125,6 @@ public class App {
         mainPanel.add(test);
         c.add(windows);
         frame.add(mainPanel);
-
         // frame.getContentPane().add(test);
         frame.setVisible(true);
     }
@@ -131,7 +135,9 @@ public class App {
     }
 
     public void start(JLabel windows) {// start
-        Banner banner = new Banner(frame);
+        banner = new Banner(frame);
+        banner.setVisible(true);
+        // banner.setVisible(true);
         removeName(windows);
         LifeCouter hp = new LifeCouter(windows);
         mapSizeApp.clear();
@@ -148,6 +154,8 @@ public class App {
     }
 
     public void play(int size) {// play
+        // banner.setVisible(true);
+        banner.changeLevel(stat.getLevel());
         mapSizeApp.get(size).setVisbleTure();
         setOrder(size);
     }
@@ -194,13 +202,14 @@ public class App {
     }
 
     public void setOrder(int size) {
-        System.out.println("array.size = " + Stat.queue.size() + " quantity = " + stat.getQuantity());
+        System.out.println("array.size = " + Stat.queue.size() + " quantity = " +
+                stat.getQuantity());
         Tile[][] arrayTable = mapSizeApp.get(size).returnTable();
         int quantity = stat.getQuantity();
         ArrayList<int[]> queue = Stat.queue;
         // new table--------------------------------
         if (queue.size() > quantity) {
-            System.out.println("new table");
+            // System.out.println("new table");
             for (int iQueue = 0; iQueue < queue.size(); iQueue++) {
                 int[] queueItem = queue.get(iQueue);
                 Tile tile = arrayTable[queueItem[0]][queueItem[1]];
@@ -215,7 +224,7 @@ public class App {
             tile.setOrder(queue.size());
 
         } else {// curren table--------------------------------
-            System.out.println("curren table");
+            // System.out.println("curren table");
             // old-------------------------------------
             for (int iRandom = 1; iRandom < quantity; iRandom++) {
                 // stat.addQueue(randomZY(size));
@@ -229,13 +238,15 @@ public class App {
             Tile tile = arrayTable[queueItem[0]][queueItem[1]];
             tile.setOrder(queue.size());
         }
-        System.out.println("After array.size = " + Stat.queue.size() + " quantity = " + stat.getQuantity());
+        // System.out.println("After array.size = " + Stat.queue.size() + " quantity = "
+        // + stat.getQuantity());
         for (int testI = 0; testI < queue.size(); testI++) {
             int[] queueItem = queue.get(testI);
             Tile tile = arrayTable[queueItem[0]][queueItem[1]];
-            System.out.println("position I = " + testI + " " + Arrays.toString(queue.get(testI)));
+            // System.out.println("position I = " + testI + " " +
+            // Arrays.toString(queue.get(testI)));
 
-            System.out.println("order" + tile.getOrder());
+            // System.out.println("order" + tile.getOrder());
         }
         // setAbleBtn(mapSizeApp.get(size), false);
         preview(size, mapSizeApp.get(size));

@@ -22,6 +22,7 @@ public class Table3_3 extends TableMain {
 
         int margin1 = 110;
         int margin2 = 100;
+        int putDown = 50;
 
         private Tile[][] tile3_3 = { { tile1, tile2, tile3 }, { tile4, tile5, tile6 }, { tile7, tile8, tile9 } };
 
@@ -32,35 +33,38 @@ public class Table3_3 extends TableMain {
 
                 // panel1.setBounds(0, 0, 400, 400);
                 // panel1.setSize((int) f.getSize().getWidth(), (int) f.getSize().getHeight());
-                System.out.println(f.getSize().getWidth() + " " + f.getPreferredSize().getHeight());
-                panel1.setBounds(0, 100, (int) f.getSize().getWidth(), (int) f.getSize().getHeight());
+                // System.out.println(f.getSize().getWidth() + " " +
+                // f.getPreferredSize().getHeight());
+                panel1.setBounds(0, 50, (int) f.getSize().getWidth(), (int) f.getSize().getHeight());
                 // panel1.setPreferredSize(new Dimension(600, 600));
                 panel1.setBackground(new Color(51, 153, 230));
 
-                System.out.println(tile1);
-
-                int centerX = (int) (f.getPreferredSize().getWidth()) / 2;// this is center in x axis
-                int centerY = (int) (f.getPreferredSize().getHeight()) / 2;// this is center in y axis
+                int centerX = (int) (panel1.getPreferredSize().getWidth()) / 2;// this is center in x axis
+                int centerY = (int) (panel1.getPreferredSize().getHeight()) / 2;// this is center in y axis
                 Dimension size = (tile1.returnBTn()).getPreferredSize();
-                System.out.println(size.height + " " + size.width);
+                // System.out.println(size.height + " " + size.width);
                 (tile1.returnBTn()).setBounds((int) (centerX - size.getWidth() - margin1),
-                                (int) (centerY - size.getHeight() - margin1),
+                                (int) (centerY - size.getHeight() - margin1 - putDown),
                                 size.width, size.height);
-                (tile2.returnBTn()).setBounds((int) (centerX - margin2), (int) (centerY - size.getHeight() - margin1),
+                (tile2.returnBTn()).setBounds((int) (centerX - margin2),
+                                (int) (centerY - size.getHeight() - margin1 - putDown),
                                 size.width, size.height);
-                (tile3.returnBTn()).setBounds((int) (centerX + margin1), (int) (centerY - size.getHeight() - margin1),
+                (tile3.returnBTn()).setBounds((int) (centerX + margin1),
+                                (int) (centerY - size.getHeight() - margin1 - putDown),
                                 size.width, size.height);
-                (tile4.returnBTn()).setBounds((int) (centerX - size.getWidth() - margin1), (int) (centerY - margin2),
+                (tile4.returnBTn()).setBounds((int) (centerX - size.getWidth() - margin1),
+                                (int) (centerY - margin2 - putDown),
                                 size.width, size.height);
-                (tile5.returnBTn()).setBounds((int) (centerX - margin2), (int) (centerY - margin2),
+                (tile5.returnBTn()).setBounds((int) (centerX - margin2), (int) (centerY - margin2 - putDown),
                                 size.width, size.height);
-                (tile6.returnBTn()).setBounds((int) (centerX + margin1), (int) (centerY - margin2),
+                (tile6.returnBTn()).setBounds((int) (centerX + margin1), (int) (centerY - margin2 - putDown),
                                 size.width, size.height);
-                (tile7.returnBTn()).setBounds((int) (centerX - size.getWidth() - margin1), (int) (centerY + margin1),
+                (tile7.returnBTn()).setBounds((int) (centerX - size.getWidth() - margin1),
+                                (int) (centerY + margin1 - putDown),
                                 size.width, size.height);
-                (tile8.returnBTn()).setBounds((int) (centerX - margin2), (int) (centerY + margin1),
+                (tile8.returnBTn()).setBounds((int) (centerX - margin2), (int) (centerY + margin1 - putDown),
                                 size.width, size.height);
-                (tile9.returnBTn()).setBounds((int) (centerX + margin1), (int) (centerY + margin1),
+                (tile9.returnBTn()).setBounds((int) (centerX + margin1), (int) (centerY + margin1 - putDown),
                                 size.width, size.height);
 
                 panel1.add(tile1.returnBTn());

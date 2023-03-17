@@ -19,7 +19,7 @@ public class LifeCouter  {
     private int decreaseHeart;
     private Icon img;
     
-    LifeCouter(JPanel jPanel){
+    public LifeCouter(JPanel jPanel){
     int xRight = (int) jPanel.getPreferredSize().getWidth(); //collect top rigth 
     int yTop = 0;//collct top left
     //--------------------------------------------------
@@ -83,8 +83,6 @@ public class LifeCouter  {
 /* // ------------------------------------ */
     }
 
-    public LifeCouter(JLabel windows) {
-    }
 
     public JButton getHeart1() {
         heart1.setPreferredSize(new Dimension(200, 200));

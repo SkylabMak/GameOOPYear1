@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.awt.FlowLayout;
 import java.awt.Toolkit;
 import java.awt.Font;
-
+import java.awt.Panel;
 import java.awt.event.ActionListener;
 import java.security.PublicKey;
 import java.util.ArrayList;
@@ -21,6 +21,7 @@ import java.util.TimerTask;
 import App.object.*;
 import App.object.FTable.*;
 import App.object.FTile.Tile;
+import App.object.FHart.LifeCouter;
 
 public class App {
     // https://www.roseindia.net/java/example/java/swing/jlayered-overlap-panel.shtml
@@ -58,10 +59,14 @@ public class App {
         int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
         frame.setLocation(x, y);
         frame.setResizable(false);// disable full windows
+        
         JPanel mainPanel = new JPanel();
+
+
         JButton btnStart = new JButton("Start");// button start
         JButton test = new JButton("Test");// button start
-
+        
+        
         mainPanel.setBackground(new Color(51, 153, 230));
         btnStart.addActionListener(new ActionListener() {
             @Override
@@ -119,11 +124,14 @@ public class App {
         test.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
         windows.setFont(new Font("Comic Sans MS", Font.BOLD, 64));
         windows.setForeground(Color.WHITE);
+        
+        
 
         mainPanel.add(btnStart);
         mainPanel.add(test);
         c.add(windows);
         frame.add(mainPanel);
+        
         // frame.getContentPane().add(test);
         frame.setVisible(true);
     }
@@ -143,6 +151,8 @@ public class App {
         mapSizeApp.put(Integer.valueOf(2), new Table2_2(frame));
         mapSizeApp.put(Integer.valueOf(3), new Table3_3(frame));
         mapSizeApp.put(Integer.valueOf(4), new Table4_4(frame));
+        
+        
         play(2);
     }
 

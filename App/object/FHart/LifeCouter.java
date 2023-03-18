@@ -4,7 +4,7 @@ import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
-import java.awt.image.BufferedImage;
+import java.awt.image.BufferedImage ;
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -47,14 +47,17 @@ public class LifeCouter {
         System.out.println(size);
         // ---------------------set Dimension-------------------------
         try {
+            //BufferedImage bufferedImage = ImageIO.read(new File("App/object/FHart/Heart.png"));
+            //bufferedImage.getScaledInstance(30, 30, Image.SCALE_DEFAULT);
             // Path path = Paths.get("Heart.png");
             // System.out.println(path.toAbsolutePath().toString());
-            img = new ImageIcon("C:/Users/KhotrAiMek/Desktop/GameOOP/App/object/FHart/Heart.png");
+            //img = new ImageIcon("WindowMemoryGame/App/object/FHart/Heart.png");
+            img = new ImageIcon("App/object/FHart/Heart.png");
             // img02 = ImageIO.read(new File("Heart.png"));
-            BufferedImage bufferedImage = ImageIO
-                    .read(new File("C:/Users/KhotrAiMek/Desktop/GameOOP/App/object/FHart/Heart.png"));
+            //BufferedImage bufferedImage = ImageIO.read(new File("WindowMemoryGame/App/object/FHart/Heart.png"));
             // imageIcon = fitimage(img02, size, size);
-            // heart1.setIcon(fitimage(bufferedImage, size, size));
+             
+            heart1.setIcon(img);
             heart2.setIcon(img);
             heart3.setIcon(img);
         } catch (Exception e) {

@@ -1,15 +1,5 @@
 package App.object.FHart;
 
-import java.awt.Dimension;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.RenderingHints;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
-import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultButtonModel;
 import javax.swing.Icon;
@@ -26,29 +16,21 @@ public class LifeCouter {
     private JButton heart3 = new JButton();
     private int decreaseHeart;
     private Icon img;
-    private Image img02;
-    private ImageIcon imageIcon;
 
     public LifeCouter(JPanel jPanel) {
-        int xRight = (int) jPanel.getPreferredSize().getWidth(); // collect top rigth
-        System.out.println(xRight);
-        int yTop = 10;// collct top left
-        // --------------------------------------------------
+        int xRight = (int) jPanel.getPreferredSize().getWidth(); // collect rigth
+        int yTop = 10;// collct top
+        // --------------------defultButton------------------
         defaultAllButton1();
         defaultAllButton2();
         defaultAllButton3();
-        // --------------------defultButton------------------
-        // --------------------------------------------------
-        // heart1.setPreferredSize(new Dimension(50, 50));
-        // heart2.setPreferredSize(new Dimension(50, 50));
-        // heart3.setPreferredSize(new Dimension(50, 50));
+
         int size = 30;
         int magin = 10;
         System.out.println(size);
         // ---------------------set Dimension-------------------------
         try {
             img = new ImageIcon("App/object/FHart/Heart.png");
-
             heart1.setIcon(img);
             heart2.setIcon(img);
             heart3.setIcon(img);

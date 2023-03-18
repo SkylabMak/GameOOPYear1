@@ -1,9 +1,6 @@
 package App.object;
 
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-
-import App.App;
 
 import java.awt.Color;
 import java.awt.Container;
@@ -25,11 +22,10 @@ public class GameOver {
     GameOver(JFrame f) {
         this.f = f;
         gameOverPanel.setLayout(null);
-        // c = gameOverPanel.get
         gameOverPanel.setBackground(new Color(51, 153, 230));
         restart.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
         gameOver.setFont(new Font("Comic Sans MS", Font.BOLD, 84));
-        gameOver.setForeground(Color.BLACK);
+        gameOver.setForeground(new Color(40, 40, 40));
 
         gameOverPanel.add(restart);
         gameOverPanel.add(gameOver);
@@ -37,17 +33,18 @@ public class GameOver {
                 500);
         restart.setBounds((int) ((f.getWidth() / 2) - restart.getPreferredSize().getWidth()), 395, 300,
                 100);
-        restart.addActionListener(new BtnRestart());
 
-        restart.setBackground(Color.BLACK);
+        restart.setBackground(new Color(50, 50, 50));
         restart.setForeground(Color.WHITE);
         restart.setFocusPainted(false);
 
+        restart.addActionListener(new BtnRestart());
         gameOver.setFocusable(false);
         f.add(gameOverPanel);
     }
 
     public void restartInGO() {
+        gameOverPanel.setVisible(false);
         System.out.println("reset game");
         new Stat().restartGame();
     }
@@ -56,9 +53,7 @@ public class GameOver {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            gameOverPanel.setVisible(false);
             restartInGO();
-            // SwingUtilities.updateComponentTreeUI(f);
         }
     }
 }

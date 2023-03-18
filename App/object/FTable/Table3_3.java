@@ -3,12 +3,10 @@ package App.object.FTable;
 import java.awt.*;
 import javax.swing.*;
 
-import App.object.BackBtn;
 import App.object.FTile.Tile;
 import App.object.FTile.Tile_Size1;
 
 public class Table3_3 extends TableMain {
-        // public Tile[][] tile = new Tile[3][3];
 
         Tile_Size1 tile1 = new Tile_Size1(new JPanel());
         Tile_Size1 tile2 = new Tile_Size1(new JPanel());
@@ -31,18 +29,14 @@ public class Table3_3 extends TableMain {
         public Table3_3(JFrame f) {
                 panel1.setLayout(null);
 
-                // panel1.setBounds(0, 0, 400, 400);
-                // panel1.setSize((int) f.getSize().getWidth(), (int) f.getSize().getHeight());
-                // System.out.println(f.getSize().getWidth() + " " +
-                // f.getPreferredSize().getHeight());
                 panel1.setBounds(0, 50, (int) f.getSize().getWidth(), (int) f.getSize().getHeight());
-                // panel1.setPreferredSize(new Dimension(600, 600));
                 panel1.setBackground(new Color(51, 153, 230));
 
                 int centerX = (int) (panel1.getPreferredSize().getWidth()) / 2;// this is center in x axis
                 int centerY = (int) (panel1.getPreferredSize().getHeight()) / 2;// this is center in y axis
                 Dimension size = (tile1.returnBTn()).getPreferredSize();
-                // System.out.println(size.height + " " + size.width);
+
+                // location--------------------------
                 (tile1.returnBTn()).setBounds((int) (centerX - size.getWidth() - margin1),
                                 (int) (centerY - size.getHeight() - margin1 - putDown),
                                 size.width, size.height);
@@ -80,10 +74,6 @@ public class Table3_3 extends TableMain {
                 panel1.setVisible(false);
                 f.add(panel1);
         }
-
-        public Tile[][] getTile3_3() {
-                return tile3_3;
-        };
 
         public String toString() {
                 return String.format("this is Table3_3 class");

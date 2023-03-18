@@ -12,7 +12,6 @@ public class Stat {
     public static boolean status = true;
     private static int currentOrder = 1;
     public static ArrayList<int[]> queue = new ArrayList<>();
-    // public static HashMap<Integer, TableMain> mapSize = new HashMap<>();
     private static App app;
 
     public Stat() {
@@ -30,7 +29,6 @@ public class Stat {
 
     public void UpOrder() {
         currentOrder++;
-        // System.out.println("upOrder");
     }
 
     public void restartGame() {
@@ -38,7 +36,7 @@ public class Stat {
         app.mainPage();
     }
 
-    public void sTartgGameOvar() {
+    public void sTartGameOvar() {
         new GameOver(app.getFrame());
         app.disableOldTable(size);
     }
@@ -57,7 +55,7 @@ public class Stat {
         app.getBanner().changHeart();
         if (heart == 0) {
             app.disableOldTable(size);
-            sTartgGameOvar();
+            sTartGameOvar();
             app.getBanner().setVisible(false);
             ;
         }
@@ -66,10 +64,6 @@ public class Stat {
 
     public void addQueue(int[] pointQueue) {
         queue.add(pointQueue);
-    }
-
-    public void setSize(int newSize) {
-        size = newSize;
     }
 
     public void upLevel() {

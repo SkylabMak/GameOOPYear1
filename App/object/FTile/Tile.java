@@ -1,21 +1,15 @@
 package App.object.FTile;
 
+import App.object.Stat;
+
 import javax.swing.JPanel;
 import javax.swing.DefaultButtonModel;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.awt.Color;
-import java.awt.Dimension;
-
 import javax.swing.Timer;
-
-import App.object.Stat;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Tile {
     protected JButton btnTile = new JButton();
@@ -42,40 +36,16 @@ public class Tile {
 
     public Tile(JPanel jPanel) {
         btnTile.addMouseListener(new mouseEvent());
-        // btnTile.addActionListener(new AllButtonListener());
         btnTile.setBackground(baseColor);
         btnTile.setModel(new FixedStateButtonModel());
-        // btnTile.setPreferredSize(new Dimension(200, 200));
     }
 
     public JButton returnBTn() {
         return btnTile;
     }
 
-    public void ChangeColor() {// wait Local variables
-        btnTile.setBackground(Color.white);
-    }
-
-    public void ChangeColor2() {// wait Local variables
-        btnTile.setBackground(Color.black);
-    }
-
-    public void settimeout() {
-        int secord = 1;
-        ActionListener taskperformer = new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        };
-        timer = new Timer(0, taskperformer);
-        timer.setInitialDelay(secord);
-        timer.start();
-
-    }
-
     public void incorrect() {
         System.out.println("incorrect");
-        btnTile.setBackground(Color.RED);
         changecolorAndBack(Color.RED);
         stat.decreaseHeart();
     }
@@ -113,13 +83,13 @@ public class Tile {
         if (ownOrder.size() == 0) {
             incorrect();
         } else if (ownOrder.get(0) == stat.getQuantity()) {
-            Timer timer = new Timer(500, e -> {
+            Timer timer = new Timer(250, e -> {
                 stat.upLevel();
             });
-            timer.setRepeats(false);// make sure the timer only runs onc
+            timer.setRepeats(false);
             timer.start();
             ownOrder.removeAll(ownOrder);
-            System.out.println("depleted");
+            // System.out.println("depleted");
             changecolorAndBack(Color.green);
 
         } else if (ownOrder.get(0) == stat.getCurrentOrder()) {
@@ -136,18 +106,8 @@ public class Tile {
     }
 
     public void setAbleBtn(boolean tf) {
-        // System.out.println("setAble in tile run " + tf);
         disableEvent = tf;
-        // btnTile.setEnabled(tf);
-    }
-
-    private class AllButtonListener implements ActionListener {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            // ChangecolorAfterClick(btnTile);
-        }
-
+        // btnTile.setBackground(Color.WHITE);
     }
 
     public class mouseEvent extends MouseAdapter {
@@ -164,7 +124,6 @@ public class Tile {
             if (!disableEvent)
                 return;
             btnTile.setBackground(new Color(255, 204, 0));
-            // System.out.println("this is Tile mouse over");
         }
 
         @Override
@@ -179,7 +138,6 @@ public class Tile {
             if (!disableEvent)
                 return;
             btnTile.setBackground(new Color(0, 107, 179));
-            // System.out.println("this is Tile mouse Pressed");
             check();
 
         }

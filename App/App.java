@@ -4,14 +4,10 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import javax.swing.*;
-import java.awt.FlowLayout;
 import java.awt.Toolkit;
 import java.awt.Font;
-import java.awt.Panel;
 import java.awt.event.ActionListener;
-import java.security.PublicKey;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.awt.event.ActionEvent;
 import java.util.Timer;
@@ -21,10 +17,8 @@ import java.util.TimerTask;
 import App.object.*;
 import App.object.FTable.*;
 import App.object.FTile.Tile;
-import App.object.FHart.LifeCouter;
 
 public class App {
-    // https://www.roseindia.net/java/example/java/swing/jlayered-overlap-panel.shtml
     JLayeredPane layeredPane;
     public static int iCountdown = 0;
     JFrame frame = new JFrame("Windows");// title
@@ -89,14 +83,14 @@ public class App {
 
         btnStart.setBounds((frame.getWidth() / 2) - margin - 4, (frame.getHeight() / 2) + (margin / 4), 400, 100);
 
-        btnStart.setBackground(Color.BLACK);
-        btnStart.setForeground(Color.WHITE);
+        btnStart.setBackground(new Color(22, 250, 134));
+        btnStart.setForeground(new Color(50, 50, 50));
         btnStart.setFocusPainted(false);
         btnStart.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
         // btn test------------------------------------------------------------------
         test.setVisible(false);
         test.setEnabled(false);
-        test.setBackground(Color.BLACK);
+        test.setBackground(new Color(250, 197, 22));
         test.setForeground(Color.WHITE);
         test.setFocusPainted(false);
 
@@ -107,7 +101,7 @@ public class App {
         // Window_Logo-------------------------------------------------------------------
         windows.setBounds((frame.getWidth() / 2) - 179, 110, 400, 500);
         windows.setFont(new Font("Comic Sans MS", Font.BOLD, 84));
-        windows.setForeground(Color.BLACK);
+        windows.setForeground(new Color(40, 40, 40));
 
         p1.setBounds((frame.getWidth() / 2) - 4, 46, frame.getWidth() / 7, frame.getWidth() / 7);
         p2.setBounds((frame.getWidth() / 2) - p1.getWidth() - margin1 - 4, 46, frame.getWidth() / 7,
@@ -162,7 +156,6 @@ public class App {
     }
 
     public void setAbleBtn(TableMain table, boolean tf) {
-        // System.out.println("setAble run");
         Tile[][] tile = table.returnTable();
         for (var row : tile) {
             for (var col : row) {
@@ -191,10 +184,6 @@ public class App {
 
             }
         }, 1000, delay);
-
-    }
-
-    public void listenerPress(int size) {
 
     }
 

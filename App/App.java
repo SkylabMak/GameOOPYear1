@@ -29,7 +29,8 @@ public class App {
     public static int iCountdown = 0;
     JFrame frame = new JFrame("Windows");// title
 
-    JPanel p1 = new JPanel(); // Windows Logo
+    // Windows Logo---------------------
+    JPanel p1 = new JPanel();
     JPanel p2 = new JPanel();
     JPanel p3 = new JPanel();
     JPanel p4 = new JPanel();
@@ -46,14 +47,9 @@ public class App {
     }
 
     public void mainPage() {
-        // banner.setVisible(true);
-        // windows.setBounds((frame.getWidth() / 2) - (185), 100, 400, 500);
         windows.setText("Windows");
         // ----------------------------------------------------------------
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        // frame.setLocationRelativeTo(null);
-        // frame.setBounds(0, 0, 1000, 1000);
-        // frame.setLayout(null);
         frame.setSize(800, 800);
         frame.setBackground(Color.WHITE);
 
@@ -83,37 +79,10 @@ public class App {
             @Override
             public void actionPerformed(ActionEvent e) {
                 removeName(windows);
-
-                // JButton backButton = new JButton("Back");
-                // backButton.setBounds((frame.getWidth()/2) - 100, (frame.getHeight()/2), 400,
-                // 100);
-                // backButton.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
-                // mainPanel.add(backButton);
-                // frame.add(mainPanel);
-                // backButton.addActionListener(new ActionListener() {
-                // public void actionPerformed(ActionEvent e) {
-                // returnMainPanel();
-                // }
-                // private void returnMainPanel() {
-                // mainPanel.setVisible(true);
-                // }
-                // } );
-
-                // mainPanel.setVisible(false);
-                // mapSizeApp.put(2, new Table2_2(frame));
-                // mapSizeApp.get(2).setVisbleTure();
-                // stat.addQueue(new int[] { 0, 1 });
-                // Tile tile = (mapSizeApp.get(2).returnTable())[0][1];
-                // tile.setOrder(1);
-                // stat.addQueue(new int[] { 0, 0 });
-                // ((mapSizeApp.get(2).returnTable())[0][0]).setOrder(2);
-                // setOrder(2);
-                // preview(2, mapSizeApp.get(2));
             }
 
         });
 
-        test.setEnabled(false);
         int margin = 200;
         mainPanel.setLayout(null);
         Container c = frame.getContentPane();
@@ -123,30 +92,37 @@ public class App {
         btnStart.setBackground(Color.BLACK);
         btnStart.setForeground(Color.WHITE);
         btnStart.setFocusPainted(false);
-
+        btnStart.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
+        // btn test------------------------------------------------------------------
+        test.setVisible(false);
+        test.setEnabled(false);
         test.setBackground(Color.BLACK);
         test.setForeground(Color.WHITE);
         test.setFocusPainted(false);
 
-        test.setBounds((frame.getWidth() / 2) - margin - 4, (frame.getHeight() / 2) + ((margin / 2) + ((margin / 5) * 2)), 400,
+        test.setBounds((frame.getWidth() / 2) - margin - 4,
+                (frame.getHeight() / 2) + ((margin / 2) + ((margin / 5) * 2)), 400,
                 100);
+        test.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
+        // Window_Logo-------------------------------------------------------------------
         windows.setBounds((frame.getWidth() / 2) - 179, 110, 400, 500);
+        windows.setFont(new Font("Comic Sans MS", Font.BOLD, 84));
+        windows.setForeground(Color.BLACK);
 
         p1.setBounds((frame.getWidth() / 2) - 4, 46, frame.getWidth() / 7, frame.getWidth() / 7);
-        p2.setBounds((frame.getWidth() / 2) - p1.getWidth() - margin1 - 4, 46, frame.getWidth() / 7, frame.getWidth() / 7);
-        p3.setBounds((frame.getWidth() / 2) - 4, 46 + p2.getHeight() + margin1, frame.getWidth() / 7, frame.getWidth() / 7);
-        p4.setBounds((frame.getWidth() / 2) - p1.getWidth() - margin1  - 4, 46 + p2.getHeight() + margin1, frame.getWidth() / 7, frame.getWidth() / 7);
+        p2.setBounds((frame.getWidth() / 2) - p1.getWidth() - margin1 - 4, 46, frame.getWidth() / 7,
+                frame.getWidth() / 7);
+        p3.setBounds((frame.getWidth() / 2) - 4, 46 + p2.getHeight() + margin1, frame.getWidth() / 7,
+                frame.getWidth() / 7);
+        p4.setBounds((frame.getWidth() / 2) - p1.getWidth() - margin1 - 4, 46 + p2.getHeight() + margin1,
+                frame.getWidth() / 7, frame.getWidth() / 7);
 
         p1.setBackground(Color.WHITE);
         p2.setBackground(Color.WHITE);
         p3.setBackground(Color.WHITE);
         p4.setBackground(Color.WHITE);
 
-        btnStart.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
-        test.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
-        windows.setFont(new Font("Comic Sans MS", Font.BOLD, 84));
-        windows.setForeground(Color.BLACK);
-
+        // add--------------------------------------
         mainPanel.add(p1);
         mainPanel.add(p2);
         mainPanel.add(p3);
@@ -157,13 +133,7 @@ public class App {
         c.add(windows);
         frame.add(mainPanel);
 
-        // frame.getContentPane().add(test);
         frame.setVisible(true);
-    }
-
-    public JLabel removeName(JLabel windows) {
-        windows.setText("");
-        return windows;
     }
 
     public void start(JLabel windows) {// start
@@ -209,11 +179,8 @@ public class App {
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-
-                // int i = Integer.parseInt(args[0]);
                 Tile[][] tile = table.returnTable();
                 int[] position = stat.getQueues(iCountdown);
-                // System.out.println("loop time run" + iCountdown);
                 tile[position[0]][position[1]].changecolorAndBack(Color.MAGENTA);
                 iCountdown++;
                 if (iCountdown == Stat.queue.size()) {
@@ -221,7 +188,6 @@ public class App {
                     setAbleBtn(table, true);
                     timer.cancel();
                 }
-                // System.out.println(iCountdown);
 
             }
         }, 1000, delay);
@@ -256,33 +222,29 @@ public class App {
 
         } else {// curren table--------------------------------
             // System.out.println("curren table");
-            // old-------------------------------------
+            // old queue--------
             for (int iRandom = 1; iRandom < quantity; iRandom++) {
                 // stat.addQueue(randomZY(size));
                 int[] queueItem = queue.get(iRandom - 1);
                 Tile tile = arrayTable[queueItem[0]][queueItem[1]];
                 tile.setOrder(iRandom);
             }
-            // old-------------------------------------
+            // new queue--------
             stat.addQueue(randomZY(size));
             int[] queueItem = queue.get(queue.size() - 1);
             Tile tile = arrayTable[queueItem[0]][queueItem[1]];
             tile.setOrder(queue.size());
         }
-        // System.out.println("After array.size = " + Stat.queue.size() + " quantity = "
-        // + stat.getQuantity());
-        for (int testI = 0; testI < queue.size(); testI++) {
-            int[] queueItem = queue.get(testI);
-            Tile tile = arrayTable[queueItem[0]][queueItem[1]];
-            // System.out.println("position I = " + testI + " " +
-            // Arrays.toString(queue.get(testI)));
-
-            // System.out.println("order" + tile.getOrder());
-        }
+        // test --------------
+        // for (int testI = 0; testI < queue.size(); testI++) {
+        // int[] queueItem = queue.get(testI);
+        // Tile tile = arrayTable[queueItem[0]][queueItem[1]];
+        // System.out.println("position I = " + testI + " " +
+        // Arrays.toString(queue.get(testI)));
+        // System.out.println("order" + tile.getOrder());
+        // }
         // setAbleBtn(mapSizeApp.get(size), false);
         preview(size, mapSizeApp.get(size));
-        //
-        // Table2_2 table2_2 = new Table2_2(frame);
 
     }
 
@@ -292,6 +254,11 @@ public class App {
             xY[i] = (int) (Math.random() * (size));
         }
         return xY;
+    }
+
+    public JLabel removeName(JLabel windows) {
+        windows.setText("");
+        return windows;
     }
 
     public JFrame getFrame() {

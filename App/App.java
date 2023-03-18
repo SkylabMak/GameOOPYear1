@@ -26,11 +26,17 @@ public class App {
     // https://www.roseindia.net/java/example/java/swing/jlayered-overlap-panel.shtml
     JLayeredPane layeredPane;
     public static int iCountdown = 0;
-    JFrame frame = new JFrame("WINDOWS"); // title
+    JFrame frame = new JFrame("Windows");// title
+
+    JPanel p1 = new JPanel(); // Windows Logo
+    JPanel p2 = new JPanel();
+    JPanel p3 = new JPanel();
+    JPanel p4 = new JPanel();
+
     Container c = frame.getContentPane();
     Stat stat = new Stat(this);
     HashMap<Integer, TableMain> mapSizeApp = new HashMap<>();
-    public JLabel windows = new JLabel("WINDOWS");// name
+    public JLabel windows = new JLabel("Windows");// name
     Banner banner;
 
     public App() {
@@ -53,6 +59,9 @@ public class App {
         // frame.setLayout(null);
         frame.setSize(800, 800);
         frame.setBackground(Color.WHITE);
+
+        int margin1 = 10;
+
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
         int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
@@ -110,15 +119,39 @@ public class App {
         mainPanel.setLayout(null);
         Container c = frame.getContentPane();
 
-        btnStart.setBounds((frame.getWidth() / 2) - margin, (frame.getHeight() / 2), 400, 100);
-        test.setBounds((frame.getWidth() / 2) - margin, (frame.getHeight() / 2) + ((margin / 2) + (margin / 5)), 400,
+        btnStart.setBounds((frame.getWidth() / 2) - margin - 4, (frame.getHeight() / 2) + (margin / 4), 400, 100);
+
+        btnStart.setBackground(Color.BLACK);
+        btnStart.setForeground(Color.WHITE);
+        btnStart.setFocusPainted(false);
+
+        test.setBackground(Color.BLACK);
+        test.setForeground(Color.WHITE);
+        test.setFocusPainted(false);
+
+        test.setBounds((frame.getWidth() / 2) - margin - 4, (frame.getHeight() / 2) + ((margin / 2) + ((margin / 5) * 2)), 400,
                 100);
-        windows.setBounds((frame.getWidth() / 2) - 135, 80, 400, 500);
+        windows.setBounds((frame.getWidth() / 2) - 179, 110, 400, 500);
+
+        p1.setBounds((frame.getWidth() / 2) - 4, 46, frame.getWidth() / 7, frame.getWidth() / 7);
+        p2.setBounds((frame.getWidth() / 2) - p1.getWidth() - margin1 - 4, 46, frame.getWidth() / 7, frame.getWidth() / 7);
+        p3.setBounds((frame.getWidth() / 2) - 4, 46 + p2.getHeight() + margin1, frame.getWidth() / 7, frame.getWidth() / 7);
+        p4.setBounds((frame.getWidth() / 2) - p1.getWidth() - margin1  - 4, 46 + p2.getHeight() + margin1, frame.getWidth() / 7, frame.getWidth() / 7);
+
+        p1.setBackground(Color.WHITE);
+        p2.setBackground(Color.WHITE);
+        p3.setBackground(Color.WHITE);
+        p4.setBackground(Color.WHITE);
 
         btnStart.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
         test.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
-        windows.setFont(new Font("Comic Sans MS", Font.BOLD, 64));
-        windows.setForeground(Color.WHITE);
+        windows.setFont(new Font("Comic Sans MS", Font.BOLD, 84));
+        windows.setForeground(Color.BLACK);
+
+        mainPanel.add(p1);
+        mainPanel.add(p2);
+        mainPanel.add(p3);
+        mainPanel.add(p4);
 
         mainPanel.add(btnStart);
         mainPanel.add(test);

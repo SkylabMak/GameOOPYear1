@@ -150,8 +150,13 @@ public class App {
 
         btnStart.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
         test.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
-        windows.setFont(new Font("Comic Sans MS", Font.BOLD, 64));
-        windows.setForeground(Color.WHITE);
+        windows.setFont(new Font("Comic Sans MS", Font.BOLD, 84));
+        windows.setForeground(Color.BLACK);
+
+        mainPanel.add(p1);
+        mainPanel.add(p2);
+        mainPanel.add(p3);
+        mainPanel.add(p4);
 
         mainPanel.add(btnStart);
         mainPanel.add(test);

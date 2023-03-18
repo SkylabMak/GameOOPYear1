@@ -33,6 +33,11 @@ public class BackBtn extends JButton {
         stat = new Stat();
         setBounds(15, 5, 100, 40);
         setFont(new Font("Comic Sans MS", Font.BOLD, 20));
+
+        setBackground(Color.BLACK);
+        setForeground(Color.WHITE);
+        setFocusPainted(false);
+
         addMouseListener(new mouseEvent());
 
     }

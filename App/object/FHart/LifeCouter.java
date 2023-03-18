@@ -49,12 +49,13 @@ public class LifeCouter {
         try {
             // Path path = Paths.get("Heart.png");
             // System.out.println(path.toAbsolutePath().toString());
-            img = new ImageIcon("C:/Users/KhotrAiMek/Desktop/GameOOP/App/object/FHart/Heart.png");
-            // img02 = ImageIO.read(new File("Heart.png"));
-            BufferedImage bufferedImage = ImageIO
-                    .read(new File("C:/Users/KhotrAiMek/Desktop/GameOOP/App/object/FHart/Heart.png"));
+            img = new ImageIcon("Heart.png");
+            // // img02 = ImageIO.read(new File("Heart.png"));
+            // BufferedImage bufferedImage = ImageIO
+            // .read(new
+            // File("C:/Users/KhotrAiMek/Desktop/GameOOP/App/object/FHart/Heart.png"));
             // imageIcon = fitimage(img02, size, size);
-            // heart1.setIcon(fitimage(bufferedImage, size, size));
+            heart1.setIcon(img);
             heart2.setIcon(img);
             heart3.setIcon(img);
         } catch (Exception e) {

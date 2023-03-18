@@ -43,7 +43,8 @@ public class BackBtn extends JButton {
         public void mouseClicked(MouseEvent e) {
             System.out.println("nha hee");
             stat.sTartgGameOvar();
-            stat.getApp().disableBanner();
+            stat.getApp().getBanner().setVisible(false);
+            ;
         }
 
     }

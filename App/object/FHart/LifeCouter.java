@@ -47,17 +47,7 @@ public class LifeCouter {
         System.out.println(size);
         // ---------------------set Dimension-------------------------
         try {
-            // BufferedImage bufferedImage = ImageIO.read(new
-            // File("App/object/FHart/Heart.png"));
-            // bufferedImage.getScaledInstance(30, 30, Image.SCALE_DEFAULT);
-            // Path path = Paths.get("Heart.png");
-            // System.out.println(path.toAbsolutePath().toString());
-            // img = new ImageIcon("WindowMemoryGame/App/object/FHart/Heart.png");
             img = new ImageIcon("App/object/FHart/Heart.png");
-            // img02 = ImageIO.read(new File("Heart.png"));
-            // BufferedImage bufferedImage = ImageIO.read(new
-            // File("WindowMemoryGame/App/object/FHart/Heart.png"));
-            // imageIcon = fitimage(img02, size, size);
 
             heart1.setIcon(img);
             heart2.setIcon(img);
@@ -75,33 +65,15 @@ public class LifeCouter {
 
     }
 
-    private Image fitimage(BufferedImage img, int w, int h) {
-        // BufferedImage resizedimage = new BufferedImage(w, h,
-        // BufferedImage.TYPE_INT_RGB);
-        BufferedImage bufferedImageResult = new BufferedImage(
-                w,
-                h,
-                img.getType());
-
-        Graphics2D g2 = bufferedImageResult.createGraphics();
-        g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-        g2.drawImage(img, 0, 0, w, h, null);
-        g2.dispose();
-        return bufferedImageResult;
-    }
-
     public void WhenPressedWrong() {
         decreaseHeart = numberOfHearts.getHeart();
-        if (decreaseHeart == 3) {
-            numberOfHearts.decreaseHeart();
+        if (decreaseHeart == 2) {
             heart1.setVisible(false);
         }
-        if (decreaseHeart == 2) {
-            numberOfHearts.decreaseHeart();
+        if (decreaseHeart == 1) {
             heart2.setVisible(false);
         }
-        if (decreaseHeart == 1) {
-            numberOfHearts.decreaseHeart();
+        if (decreaseHeart == 0) {
             heart3.setVisible(false);
         }
     }

@@ -1,16 +1,8 @@
 package App.object;
 
 import java.util.ArrayList;
-import java.util.HashMap; // import the HashMap class
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 import App.App;
-import App.object.FTable.Table2_2;
-import App.object.FTable.Table3_3;
-import App.object.FTable.Table4_4;
-import App.object.FTable.TableMain;
 
 public class Stat {
     private static int level = 1;
@@ -42,7 +34,7 @@ public class Stat {
     }
 
     public void restartGame() {
-        app.disableBanner();
+        app.disableOldTable(size);
         app.mainPage();
     }
 
@@ -62,10 +54,12 @@ public class Stat {
 
     public void decreaseHeart() {
         heart--;
+        app.getBanner().changHeart();
         if (heart == 0) {
             app.disableOldTable(size);
             sTartgGameOvar();
-            app.disableBanner();
+            app.getBanner().setVisible(false);
+            ;
         }
         System.out.println("heart = " + heart);
     }

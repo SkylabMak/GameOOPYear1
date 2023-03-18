@@ -13,6 +13,7 @@ import java.awt.Container;
 
 public class Banner extends JPanel {
     JLabel level = new JLabel();
+    LifeCouter lifeCouter;
 
     public Banner(JFrame frame) {
         // setBackground(Color.MAGENTA);
@@ -25,7 +26,7 @@ public class Banner extends JPanel {
         level.setText("Level ");
         level.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
 
-        LifeCouter lifeCouter = new LifeCouter(this);
+        lifeCouter = new LifeCouter(this);
 
         add(backButton);
         add(level);
@@ -35,5 +36,9 @@ public class Banner extends JPanel {
 
     public void changeLevel(int newlevel) {
         level.setText("Level " + newlevel);
+    }
+
+    public void changHeart() {
+        lifeCouter.WhenPressedWrong();
     }
 }

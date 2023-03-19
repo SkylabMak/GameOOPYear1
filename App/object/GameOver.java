@@ -17,10 +17,8 @@ public class GameOver {
     Container c;
     JLabel gameOver = new JLabel("Game Over");
     JButton restart = new JButton("Restart");// button start
-    JFrame f;
 
     GameOver(JFrame f) {
-        this.f = f;
         gameOverPanel.setLayout(null);
         gameOverPanel.setBackground(new Color(51, 153, 230));
         restart.setFont(new Font("Comic Sans MS", Font.BOLD, 32));

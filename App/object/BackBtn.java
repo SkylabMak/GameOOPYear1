@@ -27,7 +27,7 @@ public class BackBtn extends JButton {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            System.out.println("nha hee");
+            System.out.println("Btn back");
             stat.sTartGameOvar();
             stat.getApp().getBanner().setVisible(false);
         }

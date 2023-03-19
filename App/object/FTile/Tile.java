@@ -45,7 +45,7 @@ public class Tile {
     }
 
     public void incorrect() {
-        System.out.println("incorrect");
+        // System.out.println("incorrect");
         changecolorAndBack(Color.RED);
         stat.decreaseHeart();
     }
@@ -62,27 +62,15 @@ public class Tile {
         timer.start();
     }
 
-    public void changecolorCorrect(Color color) {
-        // Tile a = new Tile(btn_tileWhite, btn_tileBlack);
-        btnTile.setBackground(color);
-        int delay = 500;
-        Timer timer = new Timer(delay, e -> {
-            btnTile.setBackground(color);
-            // btnTile.setEnabled(true);
-        });
-        timer.setRepeats(false);// make sure the timer only runs onc
-        timer.start();
-    }
-
     public void colorBase() {
         btnTile.setBackground(baseColor);
     }
 
     public void check() {
         System.out.println("currenOrder" + stat.getCurrentOrder());
-        if (ownOrder.size() == 0) {
+        if (ownOrder.size() == 0) {// incorect
             incorrect();
-        } else if (ownOrder.get(0) == stat.getQuantity()) {
+        } else if (ownOrder.get(0) == stat.getQuantity()) {// corect and last
             Timer timer = new Timer(250, e -> {
                 stat.upLevel();
             });
@@ -92,14 +80,14 @@ public class Tile {
             // System.out.println("depleted");
             changecolorAndBack(Color.green);
 
-        } else if (ownOrder.get(0) == stat.getCurrentOrder()) {
+        } else if (ownOrder.get(0) == stat.getCurrentOrder()) {// corrct
             stat.UpOrder();
-            System.out.println("correct");
+            // System.out.println("correct");
             ownOrder.remove(0);
             // disableEvent = true;
             btnTile.setBackground(Color.green);
-        } else {
-            System.out.println("else");
+        } else {// incorrect
+            // System.out.println("else");
             incorrect();
         }
 
@@ -112,12 +100,12 @@ public class Tile {
 
     public class mouseEvent extends MouseAdapter {
 
-        @Override
-        public void mouseClicked(MouseEvent e) {
-            if (!disableEvent)
-                return;
-            super.mouseClicked(e);
-        }
+        // @Override
+        // public void mouseClicked(MouseEvent e) {
+        // if (!disableEvent)
+        // return;
+        // super.mouseClicked(e);
+        // }
 
         @Override
         public void mouseEntered(MouseEvent me) {

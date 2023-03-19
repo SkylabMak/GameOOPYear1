@@ -54,10 +54,8 @@ public class Stat {
         heart--;
         app.getBanner().changHeart();
         if (heart == 0) {
-            app.disableOldTable(size);
             sTartGameOvar();
             app.getBanner().setVisible(false);
-            ;
         }
         System.out.println("heart = " + heart);
     }
@@ -74,14 +72,14 @@ public class Stat {
         if (level < 3) {
             app.play(size);
             return;
-        } else if (level == 3) {
+        } else if (level == 4) {
             System.out.println("next table to 3");
             app.disableOldTable(size);
             size++;// 3
             quantity = 1;
             app.play(size);
             return;
-        } else if (level == 5) {
+        } else if (level == 8) {
             System.out.println("next table to 4");
             app.disableOldTable(size);
             size++;// 4

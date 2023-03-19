@@ -36,11 +36,10 @@ public class App {
     Banner banner;
 
     public App() {
-
         mainPage();
     }
 
-    public void mainPage() {
+    public void mainPage() {// set graphics
         windows.setText("Windows");
         // ----------------------------------------------------------------
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -130,7 +129,7 @@ public class App {
         frame.setVisible(true);
     }
 
-    public void start(JLabel windows) {// start
+    public void start(JLabel windows) { // prepare game
         banner = new Banner(frame);
         banner.setVisible(true);
         // banner.setVisible(true);
@@ -167,7 +166,7 @@ public class App {
     public void preview(int size, TableMain table) {
         setAbleBtn(table, false);
         int delay = 700;
-        stat.getQueues(iCountdown);
+        // stat.getQueues(iCountdown);
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -190,7 +189,8 @@ public class App {
     public void setOrder(int size) {
         System.out.println("array.size = " + Stat.queue.size() + " quantity = " +
                 stat.getQuantity());
-        Tile[][] arrayTable = mapSizeApp.get(size).returnTable();
+        Tile[][] arrayTable = mapSizeApp.get(size)
+                .returnTable();
         int quantity = stat.getQuantity();
         ArrayList<int[]> queue = Stat.queue;
         // new table--------------------------------
@@ -203,7 +203,7 @@ public class App {
                 tile.removeOrder();
             }
             queue.removeAll(queue);
-            // ----------------------------------
+            // new order ----------------------------------
             stat.addQueue(randomZY(size));
             int[] queueItem = queue.get(0);
             Tile tile = arrayTable[queueItem[0]][queueItem[1]];
@@ -224,15 +224,7 @@ public class App {
             Tile tile = arrayTable[queueItem[0]][queueItem[1]];
             tile.setOrder(queue.size());
         }
-        // test --------------
-        // for (int testI = 0; testI < queue.size(); testI++) {
-        // int[] queueItem = queue.get(testI);
-        // Tile tile = arrayTable[queueItem[0]][queueItem[1]];
-        // System.out.println("position I = " + testI + " " +
-        // Arrays.toString(queue.get(testI)));
-        // System.out.println("order" + tile.getOrder());
-        // }
-        // setAbleBtn(mapSizeApp.get(size), false);
+
         preview(size, mapSizeApp.get(size));
 
     }

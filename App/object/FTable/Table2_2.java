@@ -54,10 +54,12 @@ public class Table2_2 extends TableMain {// extends JFrame
 
     }
 
+    @Override
     public String toString() {
         return String.format("this is Table2_2 class");
     }
 
+    @Override
     public Tile[][] returnTable() {
         return tile2_2;
     }

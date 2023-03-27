@@ -32,6 +32,7 @@ public class Stat {
     }
 
     public void restartGame() {
+        app.setPosition(app.getFrame().getX(), app.getFrame().getY());
         app.disableOldTable(size);
         app.mainPage();
     }

@@ -62,9 +62,9 @@ public class Tile {
         timer.start();
     }
 
-    public void colorBase() {
-        btnTile.setBackground(baseColor);
-    }
+    // public void colorBase() {
+    // btnTile.setBackground(baseColor);
+    // }
 
     public void check() {
         System.out.println("currenOrder" + stat.getCurrentOrder());
@@ -78,7 +78,8 @@ public class Tile {
             timer.start();
             ownOrder.removeAll(ownOrder);
             // System.out.println("depleted");
-            changecolorAndBack(Color.green, baseColor);
+            // changecolorAndBack(Color.green, baseColor);
+            btnTile.setBackground(Color.green);
 
         } else if (ownOrder.get(0) == stat.getCurrentOrder()) {// corrct
             stat.UpOrder();
@@ -102,13 +103,6 @@ public class Tile {
     }
 
     public class mouseEvent extends MouseAdapter {
-
-        // @Override
-        // public void mouseClicked(MouseEvent e) {
-        // if (!disableEvent)
-        // return;
-        // super.mouseClicked(e);
-        // }
 
         @Override
         public void mouseEntered(MouseEvent me) {

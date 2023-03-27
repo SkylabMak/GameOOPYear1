@@ -23,6 +23,11 @@ public class App {
     JLayeredPane layeredPane;
     public static int iCountdown = 0;
     JFrame frame = new JFrame("Windows");// title
+    Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+    private int size = 800;
+    int x = (int) ((dimension.getWidth() - size) / 2);
+    int y = (int) ((dimension.getHeight() - size) / 2);
+    private int[] position = { x, y };
 
     // Windows Logo---------------------
     JPanel p1 = new JPanel();
@@ -44,15 +49,12 @@ public class App {
         windows.setText("Windows");
         // ----------------------------------------------------------------
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 800);
+        frame.setSize(size, size);
         frame.setBackground(Color.WHITE);
 
         int margin1 = 10;
 
-        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
-        int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
-        int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
-        frame.setLocation(x, y);
+        frame.setLocation(position[0], position[1]);
         frame.setResizable(false);// disable full windows
 
         JPanel mainPanel = new JPanel();
@@ -200,7 +202,7 @@ public class App {
             for (int iQueue = 0; iQueue < queue.size(); iQueue++) {
                 int[] queueItem = queue.get(iQueue);
                 Tile tile = arrayTable[queueItem[0]][queueItem[1]];
-                tile.colorBase();
+                // tile.colorBase();
                 tile.removeOrder();
             }
             queue.removeAll(queue);
@@ -257,6 +259,11 @@ public class App {
     @Override
     public String toString() {
         return "this is app";
+    }
+
+    public void setPosition(int x, int y) {
+        position[0] = x;
+        position[1] = y;
     }
 
 }

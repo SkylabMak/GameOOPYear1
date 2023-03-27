@@ -46,16 +46,16 @@ public class Tile {
 
     public void incorrect() {
         // System.out.println("incorrect");
-        changecolorAndBack(Color.RED);
+        changecolorAndBack(Color.RED, baseColor);
         stat.decreaseHeart();
     }
 
-    public void changecolorAndBack(Color color) {
+    public void changecolorAndBack(Color color, Color colorBack) {
         // Tile a = new Tile(btn_tileWhite, btn_tileBlack);
         btnTile.setBackground(color);
         int delay = 600;
         Timer timer = new Timer(delay, e -> {
-            btnTile.setBackground(baseColor);
+            btnTile.setBackground(colorBack);
             // btnTile.setEnabled(true);
         });
         timer.setRepeats(false);// make sure the timer only runs onc
@@ -78,7 +78,7 @@ public class Tile {
             timer.start();
             ownOrder.removeAll(ownOrder);
             // System.out.println("depleted");
-            changecolorAndBack(Color.green);
+            changecolorAndBack(Color.green, baseColor);
 
         } else if (ownOrder.get(0) == stat.getCurrentOrder()) {// corrct
             stat.UpOrder();
@@ -95,7 +95,10 @@ public class Tile {
 
     public void setAbleBtn(boolean tf) {
         disableEvent = tf;
-        // btnTile.setBackground(Color.WHITE);
+        if (tf)
+            btnTile.setBackground(baseColor);
+        else
+            btnTile.setBackground(new Color(152, 182, 205));
     }
 
     public class mouseEvent extends MouseAdapter {

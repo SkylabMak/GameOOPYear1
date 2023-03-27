@@ -72,14 +72,14 @@ public class Stat {
         if (level < 3) {
             app.play(size);
             return;
-        } else if (level == 4) {
+        } else if (level == 5) {
             System.out.println("next table to 3");
             app.disableOldTable(size);
             size++;// 3
             quantity = 1;
             app.play(size);
             return;
-        } else if (level == 8) {
+        } else if (level == 10) {
             System.out.println("next table to 4");
             app.disableOldTable(size);
             size++;// 4

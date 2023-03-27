@@ -8,6 +8,7 @@ import java.awt.Toolkit;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.awt.event.ActionEvent;
 import java.util.Timer;
@@ -171,24 +172,24 @@ public class App {
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                Tile[][] tile = table.returnTable();
-                int[] position = stat.getQueues(iCountdown);
-                tile[position[0]][position[1]].changecolorAndBack(Color.MAGENTA);
-                iCountdown++;
                 if (iCountdown == Stat.queue.size()) {
                     iCountdown = 0;
                     setAbleBtn(table, true);
                     timer.cancel();
+                    return;
                 }
-
+                Tile[][] tile = table.returnTable();
+                int[] position = stat.getQueues(iCountdown);
+                tile[position[0]][position[1]].changecolorAndBack(Color.MAGENTA, new Color(152, 182, 205));
+                iCountdown++;
             }
         }, 1000, delay);
 
     }
 
     public void setOrder(int size) {
-        System.out.println("array.size = " + Stat.queue.size() + " quantity = " +
-                stat.getQuantity());
+        // System.out.println("array.size = " + Stat.queue.size() + " quantity = " +
+        // stat.getQuantity());
         Tile[][] arrayTable = mapSizeApp.get(size)
                 .returnTable();
         int quantity = stat.getQuantity();
@@ -223,6 +224,9 @@ public class App {
             int[] queueItem = queue.get(queue.size() - 1);
             Tile tile = arrayTable[queueItem[0]][queueItem[1]];
             tile.setOrder(queue.size());
+        }
+        for (int i = 0; i < quantity; i++) {
+            System.out.println(Arrays.toString(new Stat().getQueues(i)));
         }
 
         preview(size, mapSizeApp.get(size));
